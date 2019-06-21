@@ -370,16 +370,16 @@
 <p><strong>二、工具类</strong></p>
 <ul>
 <li><code>NSData+ImageContentType</code> 根据图片数据获取图片的类型，比如GIF、PNG等;</li>
-<li><code>UIImage+GIF</code> 对于一张图片是否GIF做判断。可以根据NSData返回一张 GIF 的UIImage 对象，并且只返回 GIF 的第一张图片生成的 GIF;</li>
+<li><code>UIImage+GIF</code> 对于一张图片是否GIF做判断。可以根据 NSData 返回一张 GIF 的UIImage 对象，并且只返回 GIF 的第一张图片生成的 GIF;</li>
 <li><code>UIImage+MultiFormat</code> 获取 UIImage 对象对应的 data、或者根据 data 生成指定格式的UIImage，其实就是 UIImage 和 NSData 之间的转换处理;</li>
 <li><code>SDWebImageDecoder</code> 根据图片的情况，做图片的解压缩处理。并且根据图片的情况决定如何处理解压缩;</li>
 </ul>
 <p><strong>三、核心类</strong></p>
 <ul>
-<li><code>SDWebImageManager</code> 拥有一个SDWebImageCache和SDWebImageDownloader属性分别用于图片的缓存和加载处理。为UIView及其子类提供了加载图片的统一接口。管理正在加载操作的集合。这个类是一个单列。还有就是各种加载选项的处理。</li>
-<li><code>SDImageCache</code> 负责SDWebImage的整个缓存工作，是一个单列对象。缓存路径处理、缓存名字处理、管理内存缓存和磁盘缓存的创建和删除、根据指定key获取图片、存入图片的类型处理、根据缓存的创建和修改日期删除缓存。</li>
-<li><code>SDWebImageDownloader</code> 实现了图片加载的具体处理，如果图片在缓存存在则从缓存区。如果缓存不存在，则直接创建一个。SDWebImageDownloaderOperation对象来下载图片。管理NSURLRequest对象请求头的封装、缓存、cookie的设置。加载选项的处理等功能。管理Operation之间的依赖关系。这个类是一个单列.</li>
-<li><code>SDWebImageDownloaderOperation</code> 一个自定义的并行Operation子类。这个类主要实现了图片下载的具体操作、以及图片下载完成以后的图片解压缩、Operation生命周期管理等。</li>
+<li><code>SDWebImageManager</code> 拥有一个 SDWebImageCache 和 SDWebImageDownloader 属性分别用于图片的缓存和加载处理。为UIView及其子类提供了加载图片的统一接口。管理正在加载操作的集合。这个类是一个单列。还有就是各种加载选项的处理。</li>
+<li><code>SDImageCache</code> 负责 SDWebImage 的整个缓存工作，是一个单列对象。缓存路径处理、缓存名字处理、管理内存缓存和磁盘缓存的创建和删除、根据指定key获取图片、存入图片的类型处理、根据缓存的创建和修改日期删除缓存。</li>
+<li><code>SDWebImageDownloader</code> 实现了图片加载的具体处理，如果图片在缓存存在则从缓存区。如果缓存不存在，则直接创建一个。SDWebImageDownloaderOperation 对象来下载图片。管理 NSURLRequest 对象请求头的封装、缓存、cookie 的设置。加载选项的处理等功能。管理 Operation 之间的依赖关系。这个类是一个单列.</li>
+<li><code>SDWebImageDownloaderOperation</code> 一个自定义的并行 Operation 子类。这个类主要实现了图片下载的具体操作、以及图片下载完成以后的图片解压缩、Operation 生命周期管理等。</li>
 </ul>
 
       
@@ -498,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
