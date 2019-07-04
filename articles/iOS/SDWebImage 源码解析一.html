@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="zerocc">
+  <meta name="keywords" content="iOS,源码阅读,">
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="似水流年在楼外，我却长醉不愿醒。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zerocc博客">
-<meta property="og:url" content="https://www.zerocc.com.cn/archives/2017/09/index.html">
+<meta name="description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
+<meta name="keywords" content="iOS,源码阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDWebImage 源码解析一">
+<meta property="og:url" content="https://www.zerocc.com.cn/articles/iOS/SDWebImage 源码解析一.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="似水流年在楼外，我却长醉不愿醒。">
+<meta property="og:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-03-25T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zerocc博客">
-<meta name="twitter:description" content="似水流年在楼外，我却长醉不愿醒。">
+<meta name="twitter:title" content="SDWebImage 源码解析一">
+<meta name="twitter:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/archives/2017/09/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/articles/iOS/SDWebImage 源码解析一.html">
 
 
 
 
 
-  <title>归档 | zerocc博客</title>
+  <title>SDWebImage 源码解析一 | zerocc博客</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,72 +241,192 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/articles/iOS/SDWebImage 源码解析一.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerocc">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerocc博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/articles/时光沙漏/是否还能记起你最近哭的那次？.html" itemprop="url">
-              
-                <span itemprop="name">最近哭的那次还记得吗</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">SDWebImage 源码解析一</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-09-27T20:57:03+08:00" content="2017-09-27">
-          09-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-28T19:57:03+08:00">
+                2016-02-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p><a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage 源码阅读</a>，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。</p>
+<a id="more"></a>
+
+<h1 id="框架中所有类浅析"><a href="#框架中所有类浅析" class="headerlink" title="框架中所有类浅析"></a>框架中所有类浅析</h1><p><strong>一、各分类(提供直接使用的接口)</strong></p>
+<ul>
+<li><code>UIImageView(WebCache)</code> 为 UIImageView 分类，扩展了加载图片的方法；</li>
+<li><code>UIImageView(HighlightedWebCache)</code> 为 <code>UIImageView</code> 分类，扩展了高亮状态下加载图片的方法；</li>
+<li><code>UIButton(WebCache)</code> 为 <code>UIButton</code> 分类，扩展了加载载图片的方法；</li>
+<li><code>MKAnnotationView(WebCache)</code> 为 <code>MKAnnotationView</code> 分类，扩展了其各种加载图片的方法；</li>
+<li><code>UIView(WebCache)</code></li>
+</ul>
+<p><strong>二、工具类</strong></p>
+<ul>
+<li><code>NSData+ImageContentType</code> 根据图片数据获取图片的类型，比如GIF、PNG等;</li>
+<li><code>UIImage+GIF</code> 对于一张图片是否GIF做判断。可以根据 NSData 返回一张 GIF 的UIImage 对象，并且只返回 GIF 的第一张图片生成的 GIF;</li>
+<li><code>UIImage+MultiFormat</code> 获取 UIImage 对象对应的 data、或者根据 data 生成指定格式的UIImage，其实就是 UIImage 和 NSData 之间的转换处理;</li>
+<li><code>SDWebImageDecoder</code> 根据图片的情况，做图片的解压缩处理。并且根据图片的情况决定如何处理解压缩;</li>
+</ul>
+<p><strong>三、核心类</strong></p>
+<ul>
+<li><code>SDWebImageManager</code> 拥有一个 SDWebImageCache 和 SDWebImageDownloader 属性分别用于图片的缓存和加载处理。为UIView及其子类提供了加载图片的统一接口。管理正在加载操作的集合。这个类是一个单列。还有就是各种加载选项的处理。</li>
+<li><code>SDImageCache</code> 负责 SDWebImage 的整个缓存工作，是一个单列对象。缓存路径处理、缓存名字处理、管理内存缓存和磁盘缓存的创建和删除、根据指定key获取图片、存入图片的类型处理、根据缓存的创建和修改日期删除缓存。</li>
+<li><code>SDWebImageDownloader</code> 实现了图片加载的具体处理，如果图片在缓存存在则从缓存区。如果缓存不存在，则直接创建一个。SDWebImageDownloaderOperation 对象来下载图片。管理 NSURLRequest 对象请求头的封装、缓存、cookie 的设置。加载选项的处理等功能。管理 Operation 之间的依赖关系。这个类是一个单列.</li>
+<li><code>SDWebImageDownloaderOperation</code> 一个自定义的并行 Operation 子类。这个类主要实现了图片下载的具体操作、以及图片下载完成以后的图片解压缩、Operation 生命周期管理等。</li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/源码阅读/" rel="tag"># 源码阅读</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/时光沙漏/念乡，思你 .html" rel="prev" title="念乡，思你">
+                念乡，思你 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -312,6 +434,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -332,8 +458,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -393,6 +528,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架中所有类浅析"><span class="nav-number">1.</span> <span class="nav-text">框架中所有类浅析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -531,6 +682,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
