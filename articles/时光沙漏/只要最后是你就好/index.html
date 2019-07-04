@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="iOS,源码阅读,">
+  <meta name="keywords" content="zerocc">
 
 
 
@@ -81,18 +81,17 @@
 
 
 
-<meta name="description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
-<meta name="keywords" content="iOS,源码阅读">
+<meta name="description" content="音乐自动循环到《开往春天的地铁》，感觉刚刚好。回想着最近看了的《从你的全世界路过》，我曾经看过张嘉佳的那本书《从你的全世界路过》。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage 源码解析一">
-<meta property="og:url" content="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一/index.html">
+<meta property="og:title" content="只要最后是你就好">
+<meta property="og:url" content="https://www.zerocc.com.cn/articles/时光沙漏/只要最后是你就好/index.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
+<meta property="og:description" content="音乐自动循环到《开往春天的地铁》，感觉刚刚好。回想着最近看了的《从你的全世界路过》，我曾经看过张嘉佳的那本书《从你的全世界路过》。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-03-25T15:57:03.000Z">
+<meta property="og:updated_time" content="2016-10-23T11:57:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage 源码解析一">
-<meta name="twitter:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
+<meta name="twitter:title" content="只要最后是你就好">
+<meta name="twitter:description" content="音乐自动循环到《开往春天的地铁》，感觉刚刚好。回想着最近看了的《从你的全世界路过》，我曾经看过张嘉佳的那本书《从你的全世界路过》。">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/articles/时光沙漏/只要最后是你就好/">
 
 
 
 
 
-  <title>SDWebImage 源码解析一 | zerocc博客</title>
+  <title>只要最后是你就好 | zerocc博客</title>
   
 
 
@@ -255,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一/">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/articles/时光沙漏/只要最后是你就好/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerocc">
@@ -272,7 +271,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SDWebImage 源码解析一</h2>
+          <h2 class="post-title" itemprop="name headline">只要最后是你就好</h2>
         
 
         <div class="post-meta">
@@ -284,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-28T19:57:03+08:00">
-                2016-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-23T19:57:03+08:00">
+                2016-10-23
               </time>
             
 
@@ -341,31 +340,26 @@
       
 
       
-        <p><a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage 源码阅读</a>，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。</p>
-<a id="more"></a>
-
-<h1 id="框架中所有类浅析"><a href="#框架中所有类浅析" class="headerlink" title="框架中所有类浅析"></a>框架中所有类浅析</h1><p><strong>一、各分类(提供直接使用的接口)</strong></p>
-<ul>
-<li><code>UIImageView(WebCache)</code> 为 UIImageView 分类，扩展了加载图片的方法；</li>
-<li><code>UIImageView(HighlightedWebCache)</code> 为 <code>UIImageView</code> 分类，扩展了高亮状态下加载图片的方法；</li>
-<li><code>UIButton(WebCache)</code> 为 <code>UIButton</code> 分类，扩展了加载载图片的方法；</li>
-<li><code>MKAnnotationView(WebCache)</code> 为 <code>MKAnnotationView</code> 分类，扩展了其各种加载图片的方法；</li>
-<li><code>UIView(WebCache)</code></li>
-</ul>
-<p><strong>二、工具类</strong></p>
-<ul>
-<li><code>NSData+ImageContentType</code> 根据图片数据获取图片的类型，比如GIF、PNG等;</li>
-<li><code>UIImage+GIF</code> 对于一张图片是否GIF做判断。可以根据 NSData 返回一张 GIF 的UIImage 对象，并且只返回 GIF 的第一张图片生成的 GIF;</li>
-<li><code>UIImage+MultiFormat</code> 获取 UIImage 对象对应的 data、或者根据 data 生成指定格式的UIImage，其实就是 UIImage 和 NSData 之间的转换处理;</li>
-<li><code>SDWebImageDecoder</code> 根据图片的情况，做图片的解压缩处理。并且根据图片的情况决定如何处理解压缩;</li>
-</ul>
-<p><strong>三、核心类</strong></p>
-<ul>
-<li><code>SDWebImageManager</code> 拥有一个 SDWebImageCache 和 SDWebImageDownloader 属性分别用于图片的缓存和加载处理。为UIView及其子类提供了加载图片的统一接口。管理正在加载操作的集合。这个类是一个单列。还有就是各种加载选项的处理。</li>
-<li><code>SDImageCache</code> 负责 SDWebImage 的整个缓存工作，是一个单列对象。缓存路径处理、缓存名字处理、管理内存缓存和磁盘缓存的创建和删除、根据指定key获取图片、存入图片的类型处理、根据缓存的创建和修改日期删除缓存。</li>
-<li><code>SDWebImageDownloader</code> 实现了图片加载的具体处理，如果图片在缓存存在则从缓存区。如果缓存不存在，则直接创建一个。SDWebImageDownloaderOperation 对象来下载图片。管理 NSURLRequest 对象请求头的封装、缓存、cookie 的设置。加载选项的处理等功能。管理 Operation 之间的依赖关系。这个类是一个单列.</li>
-<li><code>SDWebImageDownloaderOperation</code> 一个自定义的并行 Operation 子类。这个类主要实现了图片下载的具体操作、以及图片下载完成以后的图片解压缩、Operation 生命周期管理等。</li>
-</ul>
+        <p>音乐自动循环到《开往春天的地铁》，感觉刚刚好。<br>回想着最近看了的《从你的全世界路过》，我曾经看过张嘉佳的那本书《从你的全世界路过》。<a id="more"></a>有点味道，里面很多的爱情故事，都在身边发生过。</p>
+<p>其实电影里面有一点点夸张。很多爱情，倒没有这么的生离死别，没有这么的高尚情操，也没有伟大到让你倾家荡产。</p>
+<p>我身边的那些爱情啊，像清晨的风，山涧的流水，古城的阳光。温温柔柔的来，飘飘渺渺的走。</p>
+<p>杏仁小姐跟男朋友在一起七八年，昨天他们一起去看从你的全世界路过的时候，电影放到茅十八跟荔枝求婚的时候，突然电影屏幕暗掉，背景音乐起来，突然屏幕亮起，”杏仁小姐，你愿意嫁给我么？”。</p>
+<p>杏仁小姐看到自己的男朋友单膝跪地，举着钻戒，眼睛里满是爱意。</p>
+<p>全场爆发掌声，”嫁给他，嫁给他”。</p>
+<p>杏仁小姐眼含热泪，手捧鲜花，”我愿意”。</p>
+<p>这个才是我身边的爱情。有一点浪漫，有一点温暖，没有生离死别，没有合适，只有爱情。</p>
+<p>我想要一份爱情，你愿意给我么？</p>
+<p>陈沫最后发现自己其实爱的是幺鸡，”幺鸡是麻将中最小的牌”,”可是没有幺鸡，就胡不了十三幺”。</p>
+<p>你觉得你不太重要，可是，你在我的心里是唯一在意的人。</p>
+<p>回想起来，杏仁小姐备胎做了挺多年。不，准确的说，是暗恋了很多年。她是一个如幺鸡一样的人，对生活不抱有希望，有些怯弱，可是杏仁小姐唯一能给的，就是陪伴。</p>
+<p>我孤独一生，大概就是为了和你相遇。不管过程怎么样，最后那个人是你就好。</p>
+<p>生活中，我们大概都像陈沫和幺鸡那样，爱的委婉又平凡，内敛又热忱；</p>
+<p>会在意自己喜欢的人，会为了他成全他和别人；会愿意用满城的双闪来寻找她，会愿意呆在她爱的地方，只为了再遇见她。</p>
+<p>荔枝的全世界是茅十八，茅十八的一生是荔枝。</p>
+<p>他们是我们眼中的完美爱情。不管遇到任何事的时候他都在我身边，在任何地方他都陪着我。偏偏太短暂。但是即使短暂，却足以纪念一生。</p>
+<p>“再来到稻城，荔枝，我们也许已经结婚一周年，或者带着我们的宝宝。荔枝，我爱你。”。</p>
+<p>猪头和燕子的爱情，我经历过，不是说外貌上悬殊过大，而是在爱情付出上，我做的每一件事都与他有关，想的每一件事都与他有关，可惜，他没能参与我的未来。一别两宽，各生欢喜，你要幸福。</p>
+<p>我希望有个如你一般的人，如山涧清爽的风，如古城温暖的光，只要最后是你就好。今天你路过了谁，谁又丢失了你呢？</p>
 
       
     </div>
@@ -381,14 +375,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
-          
-            <a href="/tags/源码阅读/" rel="tag"># 源码阅读</a>
-          
-        </div>
-      
 
       
       
@@ -398,14 +384,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/articles/时光沙漏/念乡，思你 /" rel="next" title="念乡，思你">
+                <i class="fa fa-chevron-left"></i> 念乡，思你
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/时光沙漏/念乡，思你 /" rel="prev" title="念乡，思你">
-                念乡，思你 <i class="fa fa-chevron-right"></i>
+              <a href="/articles/时光沙漏/漂洋过海来看你/" rel="prev" title="漂洋过海来看你">
+                漂洋过海来看你 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,17 +448,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,22 +509,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架中所有类浅析"><span class="nav-number">1.</span> <span class="nav-text">框架中所有类浅析</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
