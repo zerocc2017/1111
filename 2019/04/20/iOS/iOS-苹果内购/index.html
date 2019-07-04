@@ -89,12 +89,14 @@
 <meta property="og:site_name" content="zerocc博客">
 <meta property="og:description" content="内购场景就不说了，主要方面调试测试还有审核方面吧！">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.zerocc.com.cn/2019/04/20/iOS/iOS-苹果内购/%E5%8D%8F%E8%AE%AE%E3%80%81%E7%A8%8E%E5%8A%A1%E5%92%8C%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1.png">
+<meta property="og:image" content="https://www.zerocc.com.cn/2019/04/20/iOS/iOS-苹果内购/%E6%B7%BB%E5%8A%A0%E5%86%85%E8%B4%AD%E6%B2%99%E7%9B%92%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7.png">
 <meta property="og:image" content="https://www.zerocc.com.cn/2019/04/20/iOS/iOS-苹果内购/%E5%86%85%E8%B4%AD%E6%B5%81%E7%A8%8B.png">
 <meta property="og:updated_time" content="2019-04-20T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 苹果内购">
 <meta name="twitter:description" content="内购场景就不说了，主要方面调试测试还有审核方面吧！">
-<meta name="twitter:image" content="https://www.zerocc.com.cn/2019/04/20/iOS/iOS-苹果内购/%E5%86%85%E8%B4%AD%E6%B5%81%E7%A8%8B.png">
+<meta name="twitter:image" content="https://www.zerocc.com.cn/2019/04/20/iOS/iOS-苹果内购/%E5%8D%8F%E8%AE%AE%E3%80%81%E7%A8%8E%E5%8A%A1%E5%92%8C%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1.png">
 
 
 
@@ -347,9 +349,7 @@
 <a id="more"></a>
 
 <h1 id="一-基础配置填写"><a href="#一-基础配置填写" class="headerlink" title="一. 基础配置填写"></a>一. 基础配置填写</h1><p>登录 storeconnect <strong>( <a href="https://appstoreconnect.apple.com" target="_blank" rel="noopener">https://appstoreconnect.apple.com</a> )</strong> 网站 ，进行相关配置。</p>
-<p><strong>1. 协议、税务和银行业务 信息填写</strong></p>
-<div style="width: 550px; margin: auto">![协议、税务和银行业务](iOS-苹果内购/协议、税务和银行业务.png)</div>
-
+<p><strong>1. 协议、税务和银行业务 信息填写</strong><br><img src="/2019/04/20/iOS/iOS-苹果内购/%E5%8D%8F%E8%AE%AE%E3%80%81%E7%A8%8E%E5%8A%A1%E5%92%8C%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1.png" alt="协议、税务和银行业务"></p>
 <p>详细过程就不写了很多。</p>
 <p><strong>2. 创建内购产品</strong></p>
 <p>点击进入<code>我的 App</code> -&gt; <code>功能</code> 创建添加内购商品，内购产品类型有四种：</p>
@@ -363,9 +363,7 @@
 </ul>
 <p>注意：当APP中有过订阅类型商品，注意是有过，创建过再删除也算，这个APP无法被转移账号；</p>
 <p>创建完成后就是审核内购商品了略。</p>
-<p><strong>3. 添加沙盒测试账号</strong></p>
-<div style="width: 550px; margin: auto">![创建内购商品](iOS-苹果内购/添加内购沙盒测试账号.png)</div>
-
+<p><strong>3. 添加沙盒测试账号</strong><br><img src="/2019/04/20/iOS/iOS-苹果内购/%E6%B7%BB%E5%8A%A0%E5%86%85%E8%B4%AD%E6%B2%99%E7%9B%92%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7.png" alt="创建内购商品"></p>
 <p>注意：使用的邮箱必须是新的，不能是已绑定或注册过的苹果账号；</p>
 <h1 id="二-内购核心代码"><a href="#二-内购核心代码" class="headerlink" title="二. 内购核心代码"></a>二. 内购核心代码</h1><p><strong>1. 正常内购业务简易流程</strong></p>
 <ul>
