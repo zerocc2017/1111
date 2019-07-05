@@ -336,9 +336,17 @@
         <p>品读优秀的第三方框架是最快的技术提升方式吧，在工作中，很多时候在思考如何封装一个功能组件时总会各种犹豫，为打破这种顾此失彼的状态，果断看一些源码，学习别人编程思想，并从中借鉴模仿其手法。 花了一周看这个框架顺便写个总结吧！ </p>
 <a id="more"></a>
 
-<h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解析和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，整体如下图:<br><img src="/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构"><br>下载好工程先整体代码大致看一遍每个文件，从工程结构及类的实际作用我对其分为以上五部分，其每个对应含义解析如下：</p>
+<h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解码和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，从文件命名初步分析整体如下图:<br><img src="/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看每个文件每个类，总结解析可以分为以下几类：</p>
 <ul>
+<li><ol>
+<li>WebCache Categories 面向开发者接口层，开发者直接调用 API 接口异步加载图片，例如：</li>
+</ol>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>sd_setImageWithURL:<span class="params">(NSURL *)</span>url placeholderImage:<span class="params">(UIImage *)</span>placeholder options:<span class="params">(SDWebImageOptions)</span>options;</span><br></pre></td></tr></table></figure>
+</li>
+<li><ol start="2">
 <li></li>
+</ol>
+</li>
 </ul>
 
       
