@@ -562,6 +562,8 @@ pre code {
   padding-left: 10px;
   padding-right: 10px;
   background-color: #f7f7f7;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 .highlight .line {
   height: 20px;
@@ -1829,7 +1831,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7018ff;
+  background: #0b1167;
 }
 .links-of-blogroll {
   font-size: 13px;
