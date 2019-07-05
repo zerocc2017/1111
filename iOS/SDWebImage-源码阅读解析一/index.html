@@ -90,6 +90,7 @@
 <meta property="og:description" content="iOS第三方组件SDWebImage源码阅读解析">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png">
 <meta property="og:updated_time" content="2016-06-04T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SDWebImage 源码阅读解析一">
@@ -348,8 +349,8 @@
         <p>品读优秀的第三方框架是最快的技术提升方式吧，在工作中，很多时候在思考如何封装一个功能组件时总会各种犹豫，为打破这种顾此失彼的状态，果断看一些源码，学习别人编程思想，并从中借鉴模仿其手法。 花了一周看这个框架顺便写个总结吧！ </p>
 <a id="more"></a>
 
-<h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解码和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，从文件命名初步分析整体如下图:</p>
-<p><img src="/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看每个文件每个类，主要解析分为以下几类：</p>
+<h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解码和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage/releases/tag/3.7.6" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，从文件命名初步分析整体如下图:</p>
+<p><img src="/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构图"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看每个文件每个类，主要解析分为以下几类：</p>
 <ol>
 <li><p>WebCache Categories 面向开发者接口层，开发者直接调用 API 接口异步加载图片，也就是说这是我们读代码的入口，入口方法中会调用管理类(协调调用下载和缓存等)，例如 UIImageView+WebCache 类中的：</p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>sd_setImageWithURL:<span class="params">(NSURL *)</span>url placeholderImage:<span class="params">(UIImage *)</span>placeholder options:<span class="params">(SDWebImageOptions)</span>options;</span><br></pre></td></tr></table></figure>
@@ -372,28 +373,15 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SDWebImageDownloader 核心方法</span></span><br><span class="line">- (<span class="keyword">id</span> &lt;SDWebImageOperation&gt;)downloadImageWithURL:(<span class="built_in">NSURL</span> *)url</span><br><span class="line">                                        options:(SDWebImageDownloaderOptions)options</span><br><span class="line">                                       progress:(SDWebImageDownloaderProgressBlock)progressBlock</span><br><span class="line">                                      completed:(SDWebImageDownloaderCompletedBlock)completedBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SDWebImageDownloaderOperation 核心是遵守 NSURLConnectionDataDelegate 代理，实现其代理方法：</span></span><br><span class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response;</span><br><span class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response;</span><br><span class="line">- (<span class="keyword">void</span>)connectionDidFinishLoading:(<span class="built_in">NSURLConnection</span> *)aConnection;</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </li>
+</ol>
+<ol start="5">
+<li>其它工具类主要是：SDWebImageCompat 、SDWebImageDecoder、NSData+ImageContentType、UIImage+MultiFormat、UIImage+GIF、UIImage+WebP；</li>
+</ol>
+<h1 id="二-内部方法逻辑流程分析"><a href="#二-内部方法逻辑流程分析" class="headerlink" title="二. 内部方法逻辑流程分析"></a>二. 内部方法逻辑流程分析</h1><p>SDWebImage 实现图片的加载、缓存处理、数据处理、图片下载等工作内部方法时序图：</p>
+<p><img src="/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png" alt="SDWebImage 逻辑方法流程图"></p>
+<ol>
+<li>对象例如 </li>
 </ol>
 
       
@@ -602,7 +590,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-SDWebImage-源代码结构"><span class="nav-number">1.</span> <span class="nav-text">一. SDWebImage 源代码结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-SDWebImage-源代码结构"><span class="nav-number">1.</span> <span class="nav-text">一. SDWebImage 源代码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-内部方法逻辑流程分析"><span class="nav-number">2.</span> <span class="nav-text">二. 内部方法逻辑流程分析</span></a></li></ol></div>
             
 
           </div>
