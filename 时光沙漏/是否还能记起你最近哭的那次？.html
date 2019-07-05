@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="iOS SDWebImage源码阅读解析,SDWebImage,SDWebImage源码,SDWebImage阅读,SDWebImage解析">
+  <meta name="keywords" content="zerocc">
 
 
 
@@ -81,21 +81,17 @@
 
 
 
-<meta name="description" content="iOS第三方组件SDWebImage源码阅读解析">
-<meta name="keywords" content="iOS SDWebImage源码阅读解析,SDWebImage,SDWebImage源码,SDWebImage阅读,SDWebImage解析">
+<meta name="description" content="一个人怎样才算成熟了呢？ 坚定、隐忍、自己思考、思考自己，越来越不在乎别人的的评价，因为你知道自己不容易；同时也越来越少对他人指指点点，因为你知道他们也不容易；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage 源码阅读解析一">
-<meta property="og:url" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/index.html">
+<meta property="og:title" content="最近哭的那次还记得吗">
+<meta property="og:url" content="https://www.zerocc.com.cn/时光沙漏/是否还能记起你最近哭的那次？.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="iOS第三方组件SDWebImage源码阅读解析">
+<meta property="og:description" content="一个人怎样才算成熟了呢？ 坚定、隐忍、自己思考、思考自己，越来越不在乎别人的的评价，因为你知道自己不容易；同时也越来越少对他人指指点点，因为你知道他们也不容易；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png">
-<meta property="og:updated_time" content="2016-06-04T15:57:03.000Z">
+<meta property="og:updated_time" content="2017-09-27T12:57:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage 源码阅读解析一">
-<meta name="twitter:description" content="iOS第三方组件SDWebImage源码阅读解析">
-<meta name="twitter:image" content="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:title" content="最近哭的那次还记得吗">
+<meta name="twitter:description" content="一个人怎样才算成熟了呢？ 坚定、隐忍、自己思考、思考自己，越来越不在乎别人的的评价，因为你知道自己不容易；同时也越来越少对他人指指点点，因为你知道他们也不容易；">
 
 
 
@@ -125,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/时光沙漏/是否还能记起你最近哭的那次？.html">
 
 
 
 
 
-  <title>SDWebImage 源码阅读解析一 | zerocc博客</title>
+  <title>最近哭的那次还记得吗 | zerocc博客</title>
   
 
 
@@ -258,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/iOS/SDWebImage-源码阅读解析一/">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/时光沙漏/是否还能记起你最近哭的那次？.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerocc">
@@ -275,7 +271,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SDWebImage 源码阅读解析一</h2>
+          <h2 class="post-title" itemprop="name headline">最近哭的那次还记得吗</h2>
         
 
         <div class="post-meta">
@@ -287,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-03T19:57:03+08:00">
-                2016-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T20:57:03+08:00">
+                2017-09-27
               </time>
             
 
@@ -303,8 +299,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-06-04T23:57:03+08:00">
-                2016-06-04
+              <time title="更新于" itemprop="dateModified" datetime="2017-09-27T20:57:03+08:00">
+                2017-09-27
               </time>
             
           </span>
@@ -328,10 +324,6 @@
           
 
           
-              <div class="post-description">
-                  iOS第三方组件SDWebImage源码阅读解析
-              </div>
-          
 
         </div>
       </header>
@@ -346,43 +338,46 @@
       
 
       
-        <p>品读优秀的第三方框架是最快的技术提升方式吧，在工作中，很多时候在思考如何封装一个功能组件时总会各种犹豫，为打破这种顾此失彼的状态，果断看一些源码，学习别人编程思想，并从中借鉴模仿其手法。 花了一周看这个框架顺便写个总结吧！ </p>
+        <p>一个人怎样才算成熟了呢？</p>
+<p>坚定、隐忍、自己思考、思考自己，越来越不在乎别人的的评价，因为你知道自己不容易；同时也越来越少对他人指指点点，因为你知道他们也不容易；</p>
 <a id="more"></a>
 
-<h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解码和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage/releases/tag/3.7.6" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，从文件命名初步分析整体如下图:</p>
-<p><img src="/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构图"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看每个文件每个类，主要解析分为以下几类：</p>
-<ol>
-<li><p>WebCache Categories 面向开发者接口层，开发者直接调用 API 接口异步加载图片，也就是说这是我们读代码的入口，入口方法中会调用管理类(协调调用下载和缓存等)，例如 UIImageView+WebCache 类中的：</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>sd_setImageWithURL:<span class="params">(NSURL *)</span>url placeholderImage:<span class="params">(UIImage *)</span>placeholder options:<span class="params">(SDWebImageOptions)</span>options;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>SDWebImageManager 是 Utils 管理工具类文件中，其是整个 SDWebImage 的核心负责发起下载和缓存，执行上步骤的方法后，上步骤方法会调用这个类的如下方法，在方法中调用下载和缓存的类；</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 其头文件引用了下载和缓存的类</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"SDWebImageOperation.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"SDWebImageDownloader.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"SDImageCache.h"</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span> &lt;SDWebImageOperation&gt;)downloadImageWithURL:(<span class="built_in">NSURL</span> *)url</span><br><span class="line">                                        options:(SDWebImageOptions)options</span><br><span class="line">                                       progress:(SDWebImageDownloaderProgressBlock)progressBlock</span><br><span class="line">                                      completed:(SDWebImageCompletionWithFinishedBlock)completedBlock;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>SDImageCache 缓存对象，负责内存缓存和沙盒缓存的类，核心方法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据key从磁盘缓存中获取图片：异步操作</span></span><br><span class="line">- (<span class="built_in">NSOperation</span> *)queryDiskCacheForKey:(<span class="built_in">NSString</span> *)key done:(SDWebImageQueryCompletedBlock)doneBlock;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="4">
-<li><p>SDWebImageDownloader 下载器也就是下载管理器，下载网络请求的前期设置 NSURLRequest对象请求头的封装、缓存、cookie的设置加载选项的处理及管理 Operation 之间的关系；SDWebImageDownloaderOperation 负责图片下载网络请求的具体操作；</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SDWebImageDownloader 核心方法</span></span><br><span class="line">- (<span class="keyword">id</span> &lt;SDWebImageOperation&gt;)downloadImageWithURL:(<span class="built_in">NSURL</span> *)url</span><br><span class="line">                                        options:(SDWebImageDownloaderOptions)options</span><br><span class="line">                                       progress:(SDWebImageDownloaderProgressBlock)progressBlock</span><br><span class="line">                                      completed:(SDWebImageDownloaderCompletedBlock)completedBlock;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SDWebImageDownloaderOperation 核心是遵守 NSURLConnectionDataDelegate 代理，实现其代理方法：</span></span><br><span class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response;</span><br><span class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response;</span><br><span class="line">- (<span class="keyword">void</span>)connectionDidFinishLoading:(<span class="built_in">NSURLConnection</span> *)aConnection;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="5">
-<li>其它工具类主要是：SDWebImageCompat 、SDWebImageDecoder、NSData+ImageContentType、UIImage+MultiFormat、UIImage+GIF、UIImage+WebP；</li>
-</ol>
-<h1 id="二-内部方法逻辑流程分析"><a href="#二-内部方法逻辑流程分析" class="headerlink" title="二. 内部方法逻辑流程分析"></a>二. 内部方法逻辑流程分析</h1><p>SDWebImage 实现图片的加载、缓存处理、数据处理、图片下载等工作内部方法时序图：</p>
-<p><img src="/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png" alt="SDWebImage 逻辑方法流程图"></p>
-<ol>
-<li>对象例如 </li>
-</ol>
+<p>一个人怎样才算长大了呢？</p>
+<p>小时候总骗爸妈我没钱了，现在总骗爸妈没事我还有钱；</p>
+<p>小时候在外面买了东西回家，总是把价钱给爸妈往高了报；现在买了东西回家总是给爸妈往低了说；</p>
+<p>小时候在外面受了委屈回家总是在爸妈面前哭着说，现在受了委屈回家要想着办法在爸妈面前保持笑容。</p>
+<p>再也哭不出来啦，这应该是长大了吧！</p>
+<p>生而为人，我很抱歉。</p>
+<p>小时候的我们，都是哭着哭着就笑了。可，长大后是笑着笑着，却流出了眼泪。</p>
+<p>我见过身躯疲惫的白领，深夜十一二点在公司大厦下点着烟，静静的等待着出租车；</p>
+<p>我见过穿着光鲜亮丽的女生，在电梯里红着眼眶，对着镜子补妆；</p>
+<p>我见过顶着大雨扫大街的环卫工，在一年四季无论风雨里，每天凌晨四五点必然听到风扫落叶的声音。</p>
+<p>是否你曾有过那一刻，忽然觉得，生活真他妈的好心酸，好苦啊！</p>
+<p>无论你经历了怎样的泣不成声，这个城市依然车水马龙，它不会等你，不会照顾你的感受与情绪。</p>
+<p>你哪怕难过的快要死掉，太阳升起早晨醒来看着镜中的自己，你也只能对他说生活是有诗和远方的，照常的忙这忙那！</p>
+<p>成长就是这样吧。</p>
+<p>过去的几年里，我能支配给自己的自由时间只有深夜，甚至有一段时间连深夜也不是，整个人的精神都是处于紧绷的状态。</p>
+<p>这样一根根紧绷的弦绞乱如麻萦绕大脑。很想“咔嚓”一声将其全部剪断，可是不行呀，你还是要硬着头皮一根根将它们理顺。</p>
+<p>难受的想找个人抱怨，却发现找谁说都不合适；想离开现在的环境来一场说走就走的旅行，却发现找不到同行的人；</p>
+<p>所有的总总，却都没有，依然墨守成规遵循着他们的游戏规则。</p>
+<p>“讨生活”，呵！心累的时候，委屈的时候，眼眶没有再红，反倒愈加平静，表情依旧。</p>
+<p>真的，再也哭不出来了，任何时候，都哭不出来了。</p>
+<p>印象中哭得较惨的几次，一次是中学时期周日的下午，一个人生活，一个人做饭，做完后也吃不下，那种冷清孤寂感莫名袭上心头，一个人抱着游戏手柄哭的一塌糊涂。</p>
+<p>都说人是瞬间长大的，而此之后就再也没有眼泪了。</p>
+<p>你哭的最惨的那天，也一定长大了吧！从一哭就有人哄到再难也要忍着笑。</p>
+<p>生活中的我们，大概都有这样的经历吧？</p>
+<p>你生活的城市很大，大到你不知道“家”的路。</p>
+<p>你也会质问自己吧，生活的本质是什么？就是这样吗？</p>
+<p>想了很久很久，才告诉自己：“好像是的”。</p>
+<p>城市的喧嚣充斥着每一个角落，霓虹灯笼罩着每一个清晨和黑夜。</p>
+<p>挤上地铁的你，有时会疲惫的瞌睡着，有时会坐过站，有时会莫名的压抑，压抑的感觉空气仿佛都不再流动着；</p>
+<p>在这个城市中的你，撑了这么久，心里一定很苦吧？</p>
+<p>长大这两个字看着就挺孤独的，连偏旁部首都没有。</p>
+<p>就像是一笔交易，我们都是用童真与未经人事的洁白交换长大的勇气，还要学会和生活中的伤疤和平共处。</p>
+<p>以前的我们总是和自己说我还年轻，总是告诉自己不忘初心坚持自我，为自己而活，鼓励着自己前行。</p>
+<p>而今觉得，年轻真是一个理由，一个毫无用处的理由。</p>
+<p>同时长大后人一定为他人而活，家人、朋友、爱人你需要为他们负责。如果是真的为自己而活，摒弃世俗的认知，放下一切，追寻自我的天空之城。那么只能说你已经死了，一个人在自己的世界中，过于享受那种孤独与痛苦，过分的自洽的话，那么你就相当于死亡啦！</p>
+<p>希望你是一个坚强的战士做自己的军队，为自己招兵买马，做生活的高手！</p>
 
       
     </div>
@@ -398,14 +393,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
-          
-            <a href="/tags/源码阅读/" rel="tag"># 源码阅读</a>
-          
-        </div>
-      
 
       
       
@@ -415,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/时光沙漏/念乡，思你 /" rel="next" title="念乡，思你">
-                <i class="fa fa-chevron-left"></i> 念乡，思你
+              <a href="/时光沙漏/漂洋过海来看你.html" rel="next" title="漂洋过海来看你">
+                <i class="fa fa-chevron-left"></i> 漂洋过海来看你
               </a>
             
           </div>
@@ -425,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/时光沙漏/只要最后是你就好/" rel="prev" title="只要最后是你就好">
-                只要最后是你就好 <i class="fa fa-chevron-right"></i>
+              <a href="/实用工具/百度云盘破解.html" rel="prev" title="百度云盘破解">
+                百度云盘破解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -510,17 +497,8 @@ var jiathis_config={
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -580,22 +558,6 @@ var jiathis_config={
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-SDWebImage-源代码结构"><span class="nav-number">1.</span> <span class="nav-text">一. SDWebImage 源代码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-内部方法逻辑流程分析"><span class="nav-number">2.</span> <span class="nav-text">二. 内部方法逻辑流程分析</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

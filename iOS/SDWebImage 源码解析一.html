@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="zerocc">
+  <meta name="keywords" content="iOS,源码阅读,">
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="今年我二十七八 时常想起 4 年前的大学朋友、八年前的高中朋友、…还有你们很久未见的朋友。">
+<meta name="description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
+<meta name="keywords" content="iOS,源码阅读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="归来仍是少年">
-<meta property="og:url" content="https://www.zerocc.com.cn/时光沙漏/愿我们历任千帆，归来仍是少年/index.html">
+<meta property="og:title" content="SDWebImage 源码解析一">
+<meta property="og:url" content="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="今年我二十七八 时常想起 4 年前的大学朋友、八年前的高中朋友、…还有你们很久未见的朋友。">
+<meta property="og:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-01T07:57:03.000Z">
+<meta property="og:updated_time" content="2016-03-25T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="归来仍是少年">
-<meta name="twitter:description" content="今年我二十七八 时常想起 4 年前的大学朋友、八年前的高中朋友、…还有你们很久未见的朋友。">
+<meta name="twitter:title" content="SDWebImage 源码解析一">
+<meta name="twitter:description" content="SDWebImage 源码阅读，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/时光沙漏/愿我们历任千帆，归来仍是少年/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一.html">
 
 
 
 
 
-  <title>归来仍是少年 | zerocc博客</title>
+  <title>SDWebImage 源码解析一 | zerocc博客</title>
   
 
 
@@ -254,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/时光沙漏/愿我们历任千帆，归来仍是少年/">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/iOS/SDWebImage 源码解析一.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerocc">
@@ -271,7 +272,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">归来仍是少年</h2>
+          <h2 class="post-title" itemprop="name headline">SDWebImage 源码解析一</h2>
         
 
         <div class="post-meta">
@@ -283,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T15:57:03+08:00">
-                2018-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-28T19:57:03+08:00">
+                2016-02-28
               </time>
             
 
@@ -299,8 +300,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-01T15:57:03+08:00">
-                2018-01-01
+              <time title="更新于" itemprop="dateModified" datetime="2016-03-25T23:57:03+08:00">
+                2016-03-25
               </time>
             
           </span>
@@ -338,61 +339,31 @@
       
 
       
-        <p>今年我二十七八</p>
-<p>时常想起 4 年前的大学朋友、八年前的高中朋友、…还有你们很久未见的朋友。</p>
+        <p><a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener">SDWebImage 源码阅读</a>，读其技巧，学其思想。SDWebImage 框架其提供了图片从下载、解析、处理、缓存、清理等一些列功能，是一个异步下载图片并支持缓存的 UIImageView 分类，使用简洁灵活。</p>
 <a id="more"></a>
 
-<p>这些年穿梭于各个城市间，从不用担心到陌生城市面对的只是那些陌生的人，是你们给了我前行的勇气。</p>
-<p>很温暖因为有这些朋友。</p>
-<p>有人说：各自过着自己的生活，远了，情就淡了。</p>
-<p>那些很少联系甚至很久没联系的朋友，真的是这样吗？</p>
-<p>不禁想朋友间最好的关系是怎样的？</p>
-<p>我喜欢那种见面不激动，远离不生疏，玩笑不解释，对视不尴尬，淡如水的感觉。</p>
-<p>在这个世界上，不少人一边抱怨着往日的好朋友渐渐的少了联系，一边在同学聚会上低头默默刷着手机。</p>
-<p>一边憧憬没有代沟彼此体谅的亲情，一边戴卓耳机调大音量拒绝与父母沟通，嫌弃他们唠叨；</p>
-<p>一边一把鼻涕一把泪的向世界宣告自己要嫁给爱情，一边又放不下过去，拒绝不了暧昧，狠不下心。</p>
-<p>其实我们想要的并不多：</p>
-<p>想要明亮但不耀眼的朋友；</p>
-<p>想要热闹但不唠叨的家人；</p>
-<p>想要认真但不啰嗦的恋爱；</p>
-<p>……</p>
-<p>我曾经认识一个朋友，典型的君子之交.</p>
-<p>两个人都属于那种不会主动联系对方的人，念书的时候经常腻在一块，一起泡图书馆，一起打球。后来分开了，逢年过节打个电话问候一下。</p>
-<p>我在南京他在北京，平时很要紧的事也不会告诉他，因为说了他也没办法解决，反而是无聊时、烦恼时找他聊聊天。</p>
-<p>问了没回也没关系，我们知道对方都有各自的生活。</p>
-<p>但是大多数情况下都会回复，断断续续的也不用觉得不好意思，因为友谊的存在更多是一种温存，而不是一种负担。</p>
-<p>假期时，两个人约着一起吃饭，一开始不知道说什么，菜一上来话匣子就打开，瞬间又回到了曾经坐前后桌的学生时代。</p>
-<p>仿佛分别多年，就像去小卖部买了两瓶饮料的功夫。</p>
-<p>最好的关系一定是彼此都很舒服。</p>
-<p>有时候看到好玩的有趣的，都一股脑发给对方，不必在乎语法逻辑不用刻意美图，有时候啰里啰嗦说不清楚，有时就是三言两语的抱怨。</p>
-<p>时常挂念，缺很少有机会见面，偶尔碰面也不会觉得有距离感。感情依旧，平常不会经常联系，但有事情的时候随叫随到，可以同甘也可以共苦。</p>
-<p>微信聊天并不总是你言我一语的秒回，而是我发了消息你看到了自然会回复，不会因为没有回复而胡乱猜忌，也不会因为没有秒回而感到抱歉。互相牵挂，彼此信任。我不会担心你结交新的朋友。</p>
-<p>反而很期待你在新圈子里发生的新鲜故事。</p>
-<p>我们都有各自的发展道路，并不需要有心机的装谁比谁牛，谁比谁混的好，谁比谁更有钱。</p>
-<p>或许我们都会长大，没有以前那么亲密。</p>
-<p>但是我想要的不多，一个人有烦心事的时候，能有个人说说话就好。</p>
-<p>不用家缠万贯，不必倾国倾城，彼此真诚就好。</p>
-<p>我是个慢热的人，所以没有主动联系谁，你也要知道，我永远记得你。</p>
-<p>在电影后会无期里有这样一段对白：</p>
-<p>“你混的不好了来找我。”</p>
-<p>“混的好就不能来找你吗？”</p>
-<p>“混的好你就不会来找我了。”</p>
-<p>生活在烟火世上，大家都是俗人。</p>
-<p>但凡牵扯感情的都会有所图，大大小小之说吧。作为朋友，彼此照应，在所难免。</p>
-<p>但单纯为了利益麻烦别人的，应该不能称为朋友吧！</p>
-<p>朋友是彼此互为朋友，求助之前懂得体谅。</p>
-<p>朋友不是用来伺候的，</p>
-<p>善意也不是用来道德绑架的，</p>
-<p>无论在友情还是其它感情中，都要做到将心比心，找一个精神上门当户对的人。</p>
-<p>最好的关系不是随叫随到，也不是鸡毛蒜皮的小事就肆意打扰。</p>
-<p>最好的关系未必微信秒回，但一通电话就好像要坐到对方身边。</p>
-<p>最好的关系不是讲大道理，而是无论发生什么都站在你身后，就算你错了，也只会在两个人的时候再温柔指出。</p>
-<p>一辈子很短要把时间浪费在值得的人身上，一辈子很长要找三两个真诚想待的人拥暖。</p>
-<p>最好的关系不是随叫随到，而是各自忙碌又互相牵挂，不用刻意想起但从未忘记。</p>
-<p>愿我们仍然是好朋友，不必每天腻在一起，选一个有太阳的下午喝咖啡，把一段时间没见面的趣事都补齐。</p>
-<p>愿我们历任千帆，归来仍是少年。</p>
-<p>你在我没有去过的城市里安好，有依有靠，希望你过的好，并且我有一点点羡慕，</p>
-<p>我们说好不分离，做一世的朋友，我们肩靠肩乘舟，穿越车水马龙。一句好久不见便能回到从前。</p>
+<h1 id="框架中所有类浅析"><a href="#框架中所有类浅析" class="headerlink" title="框架中所有类浅析"></a>框架中所有类浅析</h1><p><strong>一、各分类(提供直接使用的接口)</strong></p>
+<ul>
+<li><code>UIImageView(WebCache)</code> 为 UIImageView 分类，扩展了加载图片的方法；</li>
+<li><code>UIImageView(HighlightedWebCache)</code> 为 <code>UIImageView</code> 分类，扩展了高亮状态下加载图片的方法；</li>
+<li><code>UIButton(WebCache)</code> 为 <code>UIButton</code> 分类，扩展了加载载图片的方法；</li>
+<li><code>MKAnnotationView(WebCache)</code> 为 <code>MKAnnotationView</code> 分类，扩展了其各种加载图片的方法；</li>
+<li><code>UIView(WebCache)</code></li>
+</ul>
+<p><strong>二、工具类</strong></p>
+<ul>
+<li><code>NSData+ImageContentType</code> 根据图片数据获取图片的类型，比如GIF、PNG等;</li>
+<li><code>UIImage+GIF</code> 对于一张图片是否GIF做判断。可以根据 NSData 返回一张 GIF 的UIImage 对象，并且只返回 GIF 的第一张图片生成的 GIF;</li>
+<li><code>UIImage+MultiFormat</code> 获取 UIImage 对象对应的 data、或者根据 data 生成指定格式的UIImage，其实就是 UIImage 和 NSData 之间的转换处理;</li>
+<li><code>SDWebImageDecoder</code> 根据图片的情况，做图片的解压缩处理。并且根据图片的情况决定如何处理解压缩;</li>
+</ul>
+<p><strong>三、核心类</strong></p>
+<ul>
+<li><code>SDWebImageManager</code> 拥有一个 SDWebImageCache 和 SDWebImageDownloader 属性分别用于图片的缓存和加载处理。为UIView及其子类提供了加载图片的统一接口。管理正在加载操作的集合。这个类是一个单列。还有就是各种加载选项的处理。</li>
+<li><code>SDImageCache</code> 负责 SDWebImage 的整个缓存工作，是一个单列对象。缓存路径处理、缓存名字处理、管理内存缓存和磁盘缓存的创建和删除、根据指定key获取图片、存入图片的类型处理、根据缓存的创建和修改日期删除缓存。</li>
+<li><code>SDWebImageDownloader</code> 实现了图片加载的具体处理，如果图片在缓存存在则从缓存区。如果缓存不存在，则直接创建一个。SDWebImageDownloaderOperation 对象来下载图片。管理 NSURLRequest 对象请求头的封装、缓存、cookie 的设置。加载选项的处理等功能。管理 Operation 之间的依赖关系。这个类是一个单列.</li>
+<li><code>SDWebImageDownloaderOperation</code> 一个自定义的并行 Operation 子类。这个类主要实现了图片下载的具体操作、以及图片下载完成以后的图片解压缩、Operation 生命周期管理等。</li>
+</ul>
 
       
     </div>
@@ -408,6 +379,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/源码阅读/" rel="tag"># 源码阅读</a>
+          
+        </div>
+      
 
       
       
@@ -417,18 +396,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/实用工具/百度云盘破解/" rel="next" title="百度云盘破解">
-                <i class="fa fa-chevron-left"></i> 百度云盘破解
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/时光沙漏/希望我们冷漠且礼貌相处/" rel="prev" title="希望我们冷漠且礼貌的相处">
-                希望我们冷漠且礼貌的相处 <i class="fa fa-chevron-right"></i>
+              <a href="/时光沙漏/念乡，思你 .html" rel="prev" title="念乡，思你">
+                念乡，思你 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -512,8 +487,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -573,6 +557,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架中所有类浅析"><span class="nav-number">1.</span> <span class="nav-text">框架中所有类浅析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
