@@ -385,7 +385,9 @@
 <li>UIImageView+WebCache 内部最终都会调用方法 (private method) <code>sd_setImageWithURL: placeholderImage: options: progress: completed:</code>;</li>
 <li>上步方法内部实现首先判断需不需要取消当前图片的下载操作(cell 复用一个 UIImageView 多个下载会出现闪图)，其调用的核心方法是 UIView+WebCacheOperation <code>- (void)sd_cancelImageLoadOperationWithKey:(NSString *)key</code>，这里思考为什么设计为 UIView 的分类，很好理解因为 UIButton 也要调用, 他们都是继承 UIView，其次调用者都是 self 对象本身;</li>
 <li>第二步中内部方法中执行完第三步逻辑(判断完是否取消当前图片下载操作)后，继续执行，调用负责发起下载和缓存 SDWebImageManager 中的方法 <code>downloadImageWithURL: options: progress: completed:</code> ;</li>
-<li>SDWebImageManager 对象的上述方法执行过程中通过调用 SDImageCache 对象的 <code>queryDiskCacheForKey: done:</code> 方法去查询缓存相关操作</li>
+<li>SDWebImageManager 对象的上述方法执行过程中通过调用 SDImageCache 对象的 <code>queryDiskCacheForKey: done:</code> 方法去查询缓存相关操作，SDImageCache 对象活动完成后将结果返回;</li>
+<li>SDWebImageManager 对象的方法执行完判断缓存相关操作，继续执行调用 SDWebImageDownloader (下载器)对象的 <code>downloadImageWithURL: options: progress: completed:</code> 发起下载操作；具体的图片网络下载是由 SDWebImageDownloader 对象调用 SDWebImageDownloaderOperation 完成;</li>
+<li>图片下载完成后图片结果 block 回调到 SDWebImageManager 对象中，SDWebImageManager 继续调用 SDImageCache 对象执行图片存储操作；</li>
 </ol>
 <h1 id="三"><a href="#三" class="headerlink" title="三."></a>三.</h1>
       
