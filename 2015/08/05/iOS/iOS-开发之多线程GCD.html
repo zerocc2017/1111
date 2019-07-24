@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="iOS 多线程技术总结">
+<meta name="description" content="iOS 多线程技术总结 GCD">
 <meta name="keywords" content="iOS多线程,iOS多线程技术,iOS多线程分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 开发之多线程 GCD">
-<meta property="og:url" content="https://www.zerocc.com.cn/2015/08/03/iOS/iOS-开发之多线程GCD/index.html">
+<meta property="og:url" content="https://www.zerocc.com.cn/2015/08/05/iOS/iOS-开发之多线程GCD.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="iOS 多线程技术总结">
+<meta property="og:description" content="iOS 多线程技术总结 GCD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-05-06T15:57:03.000Z">
+<meta property="og:updated_time" content="2015-08-06T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 开发之多线程 GCD">
-<meta name="twitter:description" content="iOS 多线程技术总结">
+<meta name="twitter:description" content="iOS 多线程技术总结 GCD">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/2015/08/03/iOS/iOS-开发之多线程GCD/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/2015/08/05/iOS/iOS-开发之多线程GCD.html">
 
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/2015/08/03/iOS/iOS-开发之多线程GCD/">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/2015/08/05/iOS/iOS-开发之多线程GCD.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerocc">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-03T19:57:03+08:00">
-                2015-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-05T19:57:03+08:00">
+                2015-08-05
               </time>
             
 
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-05-06T23:57:03+08:00">
-                2016-05-06
+              <time title="更新于" itemprop="dateModified" datetime="2015-08-06T23:57:03+08:00">
+                2015-08-06
               </time>
             
           </span>
@@ -326,7 +326,7 @@
 
           
               <div class="post-description">
-                  iOS 多线程技术总结
+                  iOS 多线程技术总结 GCD
               </div>
           
 
@@ -346,7 +346,7 @@
         <a id="more"></a>
 
 
-<h1 id="同步-amp-异步"><a href="#同步-amp-异步" class="headerlink" title="同步&amp;异步"></a>同步&amp;异步</h1><p>同步和异步的概念主要区别：具不具备开启新的线程的能力，决定了任务在哪一个线程执行了；但更确切的说同步（sync）和 异步（async）的区别在于会不会阻塞当前线程，直到 Block 中的任务执行完毕；同步（sync） 操作，它会阻塞当前线程并等待 Block 中的任务执行完毕，然后当前线程才会继续往下运行。异步（async）操作，当前线程会直接往下执行，它不会阻塞当前线程；</p>
+<h1 id="一-同步-amp-异步"><a href="#一-同步-amp-异步" class="headerlink" title="一.同步&amp;异步"></a>一.同步&amp;异步</h1><p>同步和异步的概念主要区别：具不具备开启新的线程的能力，决定了任务在哪一个线程执行了；但更确切的说同步（sync）和 异步（async）的区别在于会不会阻塞当前线程，直到 Block 中的任务执行完毕；同步（sync） 操作，它会阻塞当前线程并等待 Block 中的任务执行完毕，然后当前线程才会继续往下运行。异步（async）操作，当前线程会直接往下执行，它不会阻塞当前线程；</p>
 <ul>
 <li><p>同步：在当前线程中执行任务，不具备开启新线程的能力；</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_sync</span>(<span class="built_in">dispatch_queue_t</span> queue, DISPATCH_NOESCAPE dispatch_block_t block);</span><br></pre></td></tr></table></figure>
@@ -361,7 +361,7 @@
 
 </li>
 </ul>
-<h1 id="任务-amp-队列"><a href="#任务-amp-队列" class="headerlink" title="任务&amp;队列"></a>任务&amp;队列</h1><p>任务：即具体要干的事情要执行的操作，一般是一段代码块，在 GCD 中是一个 就是一个 Block 块，<strong>这里需要特意留意下任务是 Block 块</strong>；任务存放于队列中，任务有两种执行方式：是串行还是并行；同步和异步决定任务在那条线程中执行；</p>
+<h1 id="二-任务-amp-队列"><a href="#二-任务-amp-队列" class="headerlink" title="二.任务&amp;队列"></a>二.任务&amp;队列</h1><p>任务：即具体要干的事情要执行的操作，一般是一段代码块，在 GCD 中是一个 就是一个 Block 块，<strong>这里需要特意留意下任务是 Block 块</strong>；任务存放于队列中，任务有两种执行方式：是串行还是并行；同步和异步决定任务在那条线程中执行；</p>
 <p>队列：用于存放任务，GCD 中队列分为两大类 <code>dispatch_queue_t</code>，串行队列 和 并行队列，队列的类型决定了任务的执行方式；</p>
 <ul>
 <li><p>串行队列：放到串行队列的任务，任务会以 FIFO（先进先出）的方式地取出来，让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务），实际上串行队列中也只能开启一条新线程；其中特殊的是系统自身就已经创建了一个主队列，对应着主线程其也是串行队列，主线程的作用是处理UI事件（点击事件、滚动事件、拖拽事情），串行队列的创建及获取有如下方式：</p>
@@ -377,6 +377,15 @@
 <li><code>dispatch_sync</code> 同步执行不管任务是在串行队列还是在并行队列，任务都是在当前线程一个接一个执行；</li>
 <li><code>dispatch_async</code> 异步执行任务放在串行队列，任务在其它线程一个接一个执行；任务放在并行队列，任务在多个线程中并发执行；</li>
 </ul>
+<h1 id="三-GCD-常用方法"><a href="#三-GCD-常用方法" class="headerlink" title="三.GCD 常用方法"></a>三.GCD 常用方法</h1><p><strong>1. dispatch_once （GCD 一次性代码执行）</strong></p>
+<p><code>dispatch_once</code> 能保证 Block 中代码块在程序运行过程只执行一次，常用于单例的创建；并且在多线程的环境下，dispatch_once 可以保证线程安全；</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        [<span class="keyword">self</span> disaptchOnce];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)disaptchOnce &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __func__);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"dispatch_once - 执行任务"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击后打印结果如下：disaptchOnce 方法调用了三次，其中 dispatch_once 的 block 代码块只执行一次</span></span><br><span class="line">... CCBlogCode[<span class="number">41182</span>:<span class="number">17902797</span>] -[CCGCDVC disaptchOnce]</span><br><span class="line">... CCBlogCode[<span class="number">41182</span>:<span class="number">17902797</span>] <span class="built_in">dispatch_once</span> - 执行任务</span><br><span class="line">... CCBlogCode[<span class="number">41182</span>:<span class="number">17902797</span>] -[CCGCDVC disaptchOnce]</span><br><span class="line">... CCBlogCode[<span class="number">41182</span>:<span class="number">17902797</span>] -[CCGCDVC disaptchOnce]</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. dispatch_group（GCD 队列组）</strong></p>
+<p><strong>（）</strong></p>
+<p><strong>（）</strong></p>
+<p><strong>（）</strong></p>
+<p><strong>（）</strong></p>
 
       
     </div>
@@ -407,7 +416,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/03/iOS/iOS-开发之多线程开篇/" rel="next" title="iOS 开发之多线程开篇">
+              <a href="/2015/08/03/iOS/iOS-开发之多线程开篇.html" rel="next" title="iOS 开发之多线程开篇">
                 <i class="fa fa-chevron-left"></i> iOS 开发之多线程开篇
               </a>
             
@@ -417,7 +426,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/20/时光沙漏/念乡，思你 /" rel="prev" title="念乡，思你">
+              <a href="/2016/04/20/时光沙漏/念乡，思你 .html" rel="prev" title="念乡，思你">
                 念乡，思你 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -556,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#同步-amp-异步"><span class="nav-number">1.</span> <span class="nav-text">同步&amp;异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#任务-amp-队列"><span class="nav-number">2.</span> <span class="nav-text">任务&amp;队列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-同步-amp-异步"><span class="nav-number">1.</span> <span class="nav-text">一.同步&amp;异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-任务-amp-队列"><span class="nav-number">2.</span> <span class="nav-text">二.任务&amp;队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-GCD-常用方法"><span class="nav-number">3.</span> <span class="nav-text">三.GCD 常用方法</span></a></li></ol></div>
             
 
           </div>

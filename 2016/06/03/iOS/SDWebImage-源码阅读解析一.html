@@ -85,17 +85,17 @@
 <meta name="keywords" content="iOS SDWebImage源码阅读解析,SDWebImage,SDWebImage源码,SDWebImage阅读,SDWebImage解析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SDWebImage 源码阅读解析一">
-<meta property="og:url" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/index.html">
+<meta property="og:url" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.html">
 <meta property="og:site_name" content="zerocc博客">
 <meta property="og:description" content="iOS第三方组件SDWebImage源码阅读解析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.htm/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.htm/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png">
 <meta property="og:updated_time" content="2017-07-12T15:57:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SDWebImage 源码阅读解析一">
 <meta name="twitter:description" content="iOS第三方组件SDWebImage源码阅读解析">
-<meta name="twitter:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:image" content="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.htm/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/">
+  <link rel="canonical" href="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.html">
 
 
 
@@ -258,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一/">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/2016/06/03/iOS/SDWebImage-源码阅读解析一.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerocc">
@@ -350,7 +350,7 @@
 <a id="more"></a>
 
 <h1 id="一-SDWebImage-源代码结构"><a href="#一-SDWebImage-源代码结构" class="headerlink" title="一. SDWebImage 源代码结构"></a>一. SDWebImage 源代码结构</h1><p>SDWebImage 主要功能就是图片的异步下载+缓存，其次也包含了图片的解码和清除等；源码下载地址 <a href="https://github.com/SDWebImage/SDWebImage/releases/tag/3.7.6" target="_blank" rel="noopener">SDWebImage Github 上源码</a>(下载最新的 3.7.0 版本)，下载后打开工程代码文件结构还是很清晰的，从文件命名初步分析整体如下图:</p>
-<p><img src="/2016/06/03/iOS/SDWebImage-源码阅读解析一/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构图"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看调用到的方法和每个文件每个类，主要解析分为以下几类：</p>
+<p><img src="/2016/06/03/iOS/SDWebImage-源码阅读解析一.htm/%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="SDWebImage 代码文件结构图"><br>再从我们使用 SDWebImage 调用 API 入口入手一步步看调用到的方法和每个文件每个类，主要解析分为以下几类：</p>
 <ol>
 <li><p>WebCache Categories 面向开发者接口层，开发者直接调用 API 接口异步加载图片，也就是说这是我们读代码的入口，入口方法中会调用管理类(协调调用下载和缓存等)，例如 UIImageView+WebCache 类中的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options;</span><br></pre></td></tr></table></figure>
@@ -379,7 +379,7 @@
 <li>运用到的其它工具类主要是：SDWebImageCompat 、SDWebImageDecoder、NSData+ImageContentType、UIImage+MultiFormat、UIImage+GIF、UIImage+WebP；</li>
 </ol>
 <h1 id="二-内部方法逻辑流程分析"><a href="#二-内部方法逻辑流程分析" class="headerlink" title="二. 内部方法逻辑流程分析"></a>二. 内部方法逻辑流程分析</h1><p>SDWebImage 实现图片的加载、缓存处理、数据处理、图片下载等工作内部方法时序图：</p>
-<p><img src="/2016/06/03/iOS/SDWebImage-源码阅读解析一/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png" alt="SDWebImage 逻辑方法流程图"></p>
+<p><img src="/2016/06/03/iOS/SDWebImage-源码阅读解析一.htm/%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B.png" alt="SDWebImage 逻辑方法流程图"></p>
 <ol>
 <li>创建 UIImageView 对象调用其分类 UIImageView+WebCache 的接口方法例如：<code>- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder</code> (常用方法还有其它接口方法); </li>
 <li>UIImageView+WebCache 内部最终都会调用方法 (private method) <code>sd_setImageWithURL: placeholderImage: options: progress: completed:</code>;</li>
@@ -448,7 +448,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/时光沙漏/念乡，思你 /" rel="next" title="念乡，思你">
+              <a href="/2016/04/20/时光沙漏/念乡，思你 .html" rel="next" title="念乡，思你">
                 <i class="fa fa-chevron-left"></i> 念乡，思你
               </a>
             
@@ -458,7 +458,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/04/iOS/SDWebImage-源码阅读解析二/" rel="prev" title="SDWebImage 源码阅读解析二">
+              <a href="/2016/06/04/iOS/SDWebImage-源码阅读解析二.html" rel="prev" title="SDWebImage 源码阅读解析二">
                 SDWebImage 源码阅读解析二 <i class="fa fa-chevron-right"></i>
               </a>
             
