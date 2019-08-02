@@ -356,10 +356,10 @@
 <li><p>验证是否ok：xxx.json 我命名为 localServer.json，其数据如下</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;response&quot;: &#123;</span><br><span class="line">      &quot;text&quot;: &quot;This server ok!&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-
+<p> 同路径下终端执行命令启动服务 <code>java -jar moco-runner-0.10.2-standalone.jar start -p 8080 -c localServer.json.json</code>；浏览器打开 <a href>http://localhost:8080/</a> 验证是否ok。</p>
 </li>
 </ol>
-<pre><code>同路径下终端执行命令启动服务 `java -jar moco-runner-0.10.2-standalone.jar start -p 8080 -c localServer.json.json`；浏览器打开   [http://localhost:8080/]() 验证是否ok。</code></pre><h1 id="二-Get-Post-请求"><a href="#二-Get-Post-请求" class="headerlink" title="二. Get / Post 请求"></a>二. Get / Post 请求</h1><p>request 请求有14个固定的属性:</p>
+<h1 id="二-Get-Post-请求"><a href="#二-Get-Post-请求" class="headerlink" title="二. Get / Post 请求"></a>二. Get / Post 请求</h1><p>request 请求有14个固定的属性:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">method、headers、json、factory、uri、text、cookies、xpaths、</span><br><span class="line">json_paths、version、file、 queries、path_resource、forms。</span><br></pre></td></tr></table></figure>
 
 
@@ -372,10 +372,8 @@
 <li><p>修改 localServer.json 文件，模拟无请求参数 Get 请求：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;request&quot;: &#123;</span><br><span class="line">      &quot;method&quot;: &quot;get&quot;, </span><br><span class="line">      &quot;uri&quot;: &quot;/getMethod&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;response&quot;: &#123;</span><br><span class="line">      &quot;text&quot;: &quot;Get method!&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-
+<p> 同上一样启动服务。浏览器 [<a href="http://localhost:8080/getMethod](http://localhost:8080/getMethod)" target="_blank" rel="noopener">http://localhost:8080/getMethod](http://localhost:8080/getMethod)</a> 验证即可。</p>
 </li>
-</ol>
-<pre><code>同上一样启动服务。浏览器 [http://localhost:8080/getMethod](http://localhost:8080/getMethod) 验证即可。</code></pre><ol start="2">
 <li><p>修改 localServer.json 文件，模拟带请求参数的 Get 请求：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;request&quot;: &#123;</span><br><span class="line">      &quot;method&quot; : &quot;get&quot;,</span><br><span class="line">      &quot;uri&quot;: &quot;/getMethodWithParams&quot;, </span><br><span class="line">      &quot;queries&quot;: &#123;</span><br><span class="line">        &quot;param1&quot;: &quot;1&quot;, </span><br><span class="line">        &quot;param2&quot;: &quot;2&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;response&quot;: &#123;</span><br><span class="line">      &quot;text&quot;: &quot;This is a method with params!&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
