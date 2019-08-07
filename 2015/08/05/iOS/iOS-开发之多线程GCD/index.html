@@ -374,7 +374,7 @@
 </ul>
 <p>总结：</p>
 <ul>
-<li><code>dispatch_sync</code> 同步执行不管任务是在串行队列还是在并行队列，任务都是在当前线程一个接一个执行；</li>
+<li><code>dispatch_sync</code> 同步执行不管任务是在串行队列还是在并行队列，任务都是在当前线程一个接一个执行(主队列特例除外例如子线程中调用 sync + 主队列那么任务会从子线程回到主线程执行) - <a href="https://developer.apple.com/documentation/dispatch/1452870-dispatch_sync" target="_blank" rel="noopener">apple documentation Discussion</a>；</li>
 <li><code>dispatch_async</code> 异步执行任务放在串行队列，任务在其它线程一个接一个执行；任务放在并行队列，任务在多个线程中并发执行；</li>
 </ul>
 <h1 id="三-GCD-常用方法"><a href="#三-GCD-常用方法" class="headerlink" title="三. GCD 常用方法"></a>三. GCD 常用方法</h1><p><strong>1. dispatch_once （GCD 一次性代码执行）</strong></p>
@@ -555,7 +555,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
