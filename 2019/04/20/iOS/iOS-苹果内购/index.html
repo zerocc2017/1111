@@ -397,6 +397,7 @@
 <li><strong>1.4 步骤</strong>中将获取到的 IAP 的票据信息上传服务器失败，则出现掉单用户无法获取相应的道具，这个时候应该将 IAP 的票据信息和App Service 创建的订单号 和 用户信息一起缓存到本地，最好使用 keychain 进行缓存；</li>
 <li><strong>1.6步中</strong> 或者 <strong>1.7 步骤</strong>中异常失败（可能是网络情况导致也有可能是弹窗支付完成后用户关闭了 App 等情况），其导致的可能是 App Service 请求 IAP Service 失败情况或者 App Service 返回 App 失败，也应该进行如上缓存；再在其它合适时机上报 IAP 的票据信息给 App Service；</li>
 </ul>
+<p>未完待续。。。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://developer.apple.com/cn/app-store/Receipt-Validation-Programming-Guide-CN.pdf" target="_blank" rel="noopener">苹果官方票据验证指南</a></li>
 <li><a href="https://developer.apple.com/library/archive/technotes/tn2413/_index.html#//apple_ref/doc/uid/DTS40016228-CH1-TNTAG1" target="_blank" rel="noopener">In-App Purchase FAQ</a></li>
