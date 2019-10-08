@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="0WoaXwtQt9kY0a6D4SWDtj_eb-mubG5hcqly1gp6MdI">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构算法">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C++ 数据结构算法">
+<meta name="keywords" content="数据结构算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 算法数据结构">
+<meta property="og:url" content="https://www.zerocc.com.cn/2015/01/26/数据结构算法/C++算法数据结构/index.html">
+<meta property="og:site_name" content="zerocc博客">
+<meta property="og:description" content="C++ 数据结构算法">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5433182-5013785bdafd2a49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5433182-517b033211447f2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-5fadf8fa31628969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-35393a80938b0d68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-260f0c3cdcb92ce1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-35525b2672e37d06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-b72fe7ecc9b0c2f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5433182-dcd40852b07ca1dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2015-01-26T11:57:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 算法数据结构">
+<meta name="twitter:description" content="C++ 数据结构算法">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5433182-5013785bdafd2a49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.zerocc.com.cn/2015/01/26/数据结构算法/C++算法数据结构/">
+
+
+
+
+
+  <title>C++ 算法数据结构 | zerocc博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zerocc博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">仗键行天下</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-timemachine">
+          <a href="/categories/timeMachine" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            时光沙漏
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zerocc.com.cn/2015/01/26/数据结构算法/C++算法数据结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerocc">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerocc博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C++ 算法数据结构</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-26T19:57:03+08:00">
+                2015-01-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-01-26T19:57:03+08:00">
+                2015-01-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  C++ 数据结构算法
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>线性表的基本运算：</p>
+<ol>
+<li>初始化</li>
+<li>计算表长</li>
+<li>获取节点</li>
+<li>查找节点</li>
+<li>插入节点</li>
+<li>删除节点</li>
+</ol>
+<h1 id="顺序表结构"><a href="#顺序表结构" class="headerlink" title="顺序表结构"></a>顺序表结构</h1><p>顺序表示依次存放的，只要知道该顺序表的首地址以及每个数据元素所占用的存储长度，那么我们就很容易计算出任何一个数据元素(也就是数据结点)的位置。</p>
+<p>LOC(ai) = LOC(a1) + (i-1)*c   (1=&lt; i &lt;= n) </p>
+<p>c 为每个元素占有的长度</p>
+<p>顺序表的基本运算：</p>
+<ol>
+<li>准备数据</li>
+<li>初始化顺序表</li>
+<li>计算顺序表长度</li>
+<li>插入结点</li>
+<li>追加结点</li>
+<li>删除结点</li>
+<li>查找结点</li>
+<li>显示所有结点</li>
+<li>顺序表操作实例</li>
+</ol>
+<h1 id="链表结构-链式结构"><a href="#链表结构-链式结构" class="headerlink" title="链表结构(链式结构)"></a>链表结构(链式结构)</h1><p>顺序表结构有如下一些缺点：</p>
+<ul>
+<li>在插入或者删除结点的时候，往往需要移动大量的数据。</li>
+<li>如果表比较大，有时候比较难分配足够的连续存储空间，往往导致内存分配失败，而无法存储。</li>
+</ul>
+<p>为了克服上述缺点，我们可以采用链表结构。</p>
+<p>链表结构是一种动态存储分配得结构形式，可以根据需要动态申请所需的内存单元。</p>
+<h3 id="什么是链表结构"><a href="#什么是链表结构" class="headerlink" title="什么是链表结构"></a>什么是链表结构</h3><ul>
+<li>每个节点包含两部分内容：一个是数据（这个节点的实际数据），一个是地址（下一个节点的地址）。</li>
+<li>在链表具体操作时，首先要定义一个头指针，head -&gt; 数据&amp;地址 -&gt; 数据&amp;地址 -&gt; ……-&gt; 数据，null，表尾地址空值表示链表结束。</li>
+<li>在内存中通过地址指针将数据连接在一起</li>
+<li>查找数据，必须从头结点开始逐个查找，缺点就是存取数据不方便，但是还是优点大于缺点，数据存放不需要连续的内存空间，并且不仅可以表示线性结构还可以表示非线性结构</li>
+<li>上述例子是单链表每个节点只包含一个地址指针，指向下一个节点；双链表每个节点包含两个地址指针，一个地址指针指向上一个节点，另一个指向下一个节点；单循环链表最后一个指向首节点；双循环链表。。。</li>
+</ul>
+<p>Lesson_2</p>
+<h1 id="栈结构"><a href="#栈结构" class="headerlink" title="栈结构"></a>栈结构</h1><ul>
+<li>什么是栈结构</li>
+</ul>
+<p>栈结构是从数据的运算来分类的，也就是说栈结构具有特殊的运算规则。而从数据的逻辑结构来看，栈结构其实就是一种线性结构。如果从数据的存储结构来进一步划分，栈结构包括两类：顺序栈结构、链式栈结构。</p>
+<ul>
+<li>顺序栈结构：用一组地址连续的内存单元依次保存数据，</li>
+<li>链式栈结构：采用链表形式来保存数据</li>
+</ul>
+<p>在栈结构中只能在一端栈顶进行操作(保存取出数据)，另一端栈底无法操作。从数据的运算角度来分析，栈结构是按照 “后进先出”（Last In First Out，LIFO）的原则处理结点数据的。</p>
+<ul>
+<li>入栈（Push）：将数据保存到栈顶的操作。进行入栈操作前，必先修改栈顶指针，使其向上移一个元素位置，然后将数据保存到栈顶指针所指的位置。</li>
+<li>出栈（Pop）：将栈顶的数据弹出的操作。通过修改栈顶指针，使其指向栈中的下一个元素。</li>
+</ul>
+<p>Lesson_3</p>
+<h1 id="队列结构"><a href="#队列结构" class="headerlink" title="队列结构"></a>队列结构</h1><ul>
+<li><p>什么是队列结构</p>
+<p>队列结构包括两类：顺序队列结构、链式队列结构；</p>
+<p>在队列结构中允许对两端进行操作，但是两端的操作不同。在表的一端只能进行删除操作，称为队头；在表的另一端只能进行插入操作，称为队尾。如果队列中没有数据元素，则称之为空队列。</p>
+<p>从数据的运算角度来分析，队列结构是按照 “先进先出(First In First Out,FIFO)” 的原则处理结点数据的。</p>
+<p>在队列结构中，数据运算非常简单。一般队列结构的基本操作只有两个：</p>
+<ul>
+<li>入队列：将一个元素添加到队尾（相当于到队列最后排队等候）。</li>
+<li>出队列：将队头的元素取出，同时删除该元素，使后一个元素成为队头。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>准备数据</li>
+<li>初始化队列结构</li>
+<li>判断空队列</li>
+<li>判断满队列</li>
+<li>清空队列</li>
+<li>释放队列</li>
+<li>入队列</li>
+<li>出队列</li>
+<li>读结点数据</li>
+<li>计算队列长度</li>
+</ol>
+<h1 id="树结构"><a href="#树结构" class="headerlink" title="树结构"></a>树结构</h1><ul>
+<li><p>什么是树结构</p>
+<ul>
+<li>在一个树结构中，有且仅有一个结点没有直接前驱，这个结点就是树的根结点；</li>
+<li>除根结点外，有余每个结点有且仅有一个直接前驱（父结点）；</li>
+<li>每个结点可以有任意多个直接后继；</li>
+</ul>
+</li>
+<li><p>树的基本概念</p>
+<ul>
+<li>父结点和子结点：每个结点的子树的根称为该结点的子结点，相应地，该结点被称为子结点的父结点。</li>
+<li>兄弟结点：具有同一父结点的结点称之为兄弟结点；</li>
+<li>结点的度：一个节点所包含子树的数量；</li>
+<li>树的度：是指该树所有结点中最大的度；</li>
+<li>叶结点:树中度为零的结点称之为叶结点或终端结点；</li>
+<li>分支结点：树中度不为零的结点称之为分枝结点或非终端结点。</li>
+</ul>
+<hr>
+<ul>
+<li>结点的层数：结点的层数从树根开始计算，根结点为第 1 层、依次向下为第 2、3、……、n 层。树是一种层次结构，每个结点都处在一定的层次上。</li>
+<li>树的深度：树中结点的最大层数称之为树的深度。</li>
+<li>有序树：若树中各结点的子树(兄弟结点)是按一定次序从左向右安排的，称为有序树；</li>
+<li>无序树：若树中各结点的子树（兄弟结点）未按一定次序安排，称为无序树；</li>
+<li>森林(forest)：n(n&gt;0)棵互不相交的树的集合。</li>
+</ul>
+</li>
+<li><p>树的表示法：层次括号法的基本规则</p>
+<ul>
+<li>根结点放入一对圆括号中；</li>
+<li>根结点的子树由左至右的顺序放入括号中；</li>
+<li>对子树做上述相同的处理。</li>
+<li>样，同层子树与它的根结点用圆括号括起来，同层子树之间用逗号隔开，最后用闭括号括起来。按照这种方法，右图所示的树结构可以表示成：(A(B(E)),(C(F(J)),(G(K,L))),(D(H),(I(M,N))))<br><img src="http://upload-images.jianshu.io/upload_images/5433182-5013785bdafd2a49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>二叉树</p>
+<p>二叉树是树结构的一种特殊形式，其是 n 个结点的集合，每个结点最多只能有两个子结点。二叉树的子树仍然是二叉树。二叉树一个结点上对应的两个子树分别称为左子树和右子树。由于子树有左右之分，因此二叉树是有序树。</p>
+<p>满二叉树，就是在二叉树中除最下一层的叶结点外，每层的结点都有2个子结点。</p>
+<p>完全二叉树，就是在二叉树中除二叉树最后一层外，其它各层的结点数都达到最大个数，且最后一层叶结点按照从左向右的顺序连续存在，只缺最后一层右侧若干结点。</p>
+</li>
+<li><p>完全二叉树的性质</p>
+<ul>
+<li>如果 m != 1,则结点 m 的父结点的编号为 m/2;</li>
+<li>如果 2*m &lt;= n,则结点 m 的左子树根结点的编号为 2*m &gt; n,则无左子树，进一步也没有右子树;</li>
+<li>如果 2*m+1 &lt;= n,则结点 m 的右子树根结点编号为 2*m+1;若 2*m+1 &gt; n,则无右子树；</li>
+</ul>
+</li>
+<li><p>二叉树的顺序存储</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5433182-517b033211447f2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br> 以上图 (A(B(D(H,I)),(E(J))),(C(F,G))) 完全二叉树为例：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define MAXLen 100  //最大结点数</span><br><span class="line">typedef char DATA;  //元素类型</span><br><span class="line">typedef DATA SeqBinTree[MAXLen];  //</span><br><span class="line">SeqBinTree SBT;  //定义保存二叉树数组</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>二叉树的链式存储</p>
+<p>| LSonNode         | NodeData   | RSonNode | ParentNode   |<br>|:—-              | —-    | —-     | —-         |</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef struct ChainTree</span><br><span class="line">&#123;</span><br><span class="line">    DATA NodeData;  //元素数据</span><br><span class="line">    struct ChainTree *LSonNode;  //左子树结点指针</span><br><span class="line">    struct ChainTree *RSonNode;  //右子树结点指针</span><br><span class="line">    struct ChainTree *ParentNode;  //父结点指针</span><br><span class="line">    </span><br><span class="line">&#125;ChainTreeType;</span><br><span class="line"></span><br><span class="line">ChainTreeType *root = NULL;  //定义二叉树根结点指针</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遍历二叉树<br>遍历二叉树就是逐个查找二叉树中所有的结点，这是二叉树的基本操作。</li>
+</ul>
+<p>先序遍历：即先访问根结点，再按先序遍历左子树，最后按先序遍历右子树。先序遍历一般也称为先根次序遍历，简称为DLR 遍历。</p>
+<p>中序遍历：即先按中序遍历左子树，再访问根结点，最后按中序遍历右子树，再访问根结点，最后按中序遍历右子树。中序遍历一般也称为中根次序遍历，简称为 LDR 遍历。</p>
+<p>后序遍历：即先an</p>
+<ul>
+<li>二叉树的操作<ul>
+<li>准备数据</li>
+<li>初始化二叉树</li>
+<li>添加结点</li>
+<li>查找结点</li>
+<li>获取左子树</li>
+<li>获取右子树</li>
+<li>判断空树</li>
+<li>计算二叉树深度</li>
+<li>清空二叉树</li>
+<li>显示结点数据</li>
+<li>遍历二叉树</li>
+</ul>
+</li>
+</ul>
+<h1 id="图结构"><a href="#图结构" class="headerlink" title="图结构"></a>图结构</h1><p>图结构也是一个非线性的数据结构。分析考虑图结构的点和边</p>
+<ul>
+<li>顶点 （Vertex）：图中的数据元素</li>
+<li>边（Edge）：链接点的线</li>
+</ul>
+<p>示例图结构：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5433182-5fadf8fa31628969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图结构"></p>
+<p>所有顶点构成一个顶点集合，所有的边构成边集合，一个完整的图结构由顶点集合和边集合组成。</p>
+<p>图结构在数学上一般记为以下形式：</p>
+<p>G = (V, E) 或者 G = (V(G), E(G))</p>
+<p>V(G) = {V1,V2,V3,V4,V5,V6}</p>
+<p>E(G) = {(V1,V2), (V1,V3), (V1,V5), (V2,V4), (V3,V5), (V4,V5), (V4,V6),<br>(V5,V6)}</p>
+<ul>
+<li>有向图：图结构中，边是有方向性的。有向边表示方式 <v1, v2> 就是 V1指向V2</v1,></li>
+<li><p>顶点的度（Degree）</p>
+<p>连接顶点的边的数量称为该顶点的度。无向图一个顶点 V 的度就是该顶点边的数量，记为 D(V);</p>
+<p>对于有向图，一个顶点的度有入度和出度之分。</p>
+<ul>
+<li>入度是以该顶点为端点的入边数量，记为 ID(V).</li>
+<li>出度是以该顶点为端点的出边数量，记为 OD(V).</li>
+</ul>
+<p>这样，有向图中每一个顶点 V 的总度便是入度和出度之和，即 D(V) = ID(V) + OD(V).</p>
+</li>
+<li><p>邻接顶点</p>
+<p>邻接顶点是指图结构中一条边的两个顶点。邻接顶点在有向图和无向图中具有不同的表示。对于无向图，邻接顶点比较简单。一条边的两个顶点互为邻接顶点。</p>
+<p>对于有向图，根据连接顶点 V 的边的方向性，两个顶点分别称为起始顶点（起点或始点）和结束顶点（终点）。有向图的邻接顶点分为两类：</p>
+<ul>
+<li>入边邻接顶点：连接该顶点的边中的起始顶点。</li>
+<li>出边邻接顶点：连接该顶点的边中的结束顶点。</li>
+</ul>
+</li>
+<li><p>无向完全图</p>
+<p>如果在一个无向图中，每两个顶点之间都存在一条边，那么这种图结构称为无向完全图。</p>
+</li>
+<li><p>权：在实际应用中往往需要将边表示成某种数值，这个数值便是该边的权（Weight）。无向图中加入权值，则称为无向带权图。有向图中加入权值，则称为有向带权图。</p>
+</li>
+<li>网（Network）网就是边上带有权值的图的另一种名称。网的概念与实际应用更为贴切。</li>
+</ul>
+<h3 id="图的数据处理"><a href="#图的数据处理" class="headerlink" title="图的数据处理"></a>图的数据处理</h3><ol>
+<li><p>准备数据：在实际应用中，通常需要采用结构数组的形式来单独保存顶点信息，然后采用二维数组的形式保存顶点之间的关系。这种保存顶点之间关系的数组称之为邻接矩阵。</p>
+<p>char Vertex[n];  //保存顶点信息（序号或字母）<br>int EdgeWeight[n][n];  //邻接矩阵，保存边的权</p>
+<p>对于数组 Vertex，其中每一个数组元素保存顶点信息，可以是序号或者字母。而邻接矩阵 EdgeVeight 保存边的权或者连接关系。                   </p>
+</li>
+</ol>
+<p>  <img src="https://upload-images.jianshu.io/upload_images/5433182-35393a80938b0d68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图.png">  </p>
+<p>  <img src="https://upload-images.jianshu.io/upload_images/5433182-260f0c3cdcb92ce1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图.png"></p>
+<p>  <img src="https://upload-images.jianshu.io/upload_images/5433182-35525b2672e37d06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="带权值图.png"></p>
+<ol>
+<li>遍历图</li>
+</ol>
+<ul>
+<li>常用的图遍历方法有两种：广度优先法和深度优先法。以深度优先法为例进行介绍，深度优先遍历算法类似于树的先序遍历，过程如下：<ul>
+<li>首先，从书中 iSTrav 中选择一个未被访的顶点Vi，将其标记为1，表示已访问。</li>
+<li>接着，从Vi的一个未被访问过的邻接点出发进行深度优先遍历。</li>
+<li>重复步骤二，直至图中所有和Vi有路径相通的顶点都被访问过。</li>
+<li>重复步骤一至步骤三的操作，直到图中所有顶点都被访问过。</li>
+</ul>
+</li>
+</ul>
+<h1 id="穷举算法"><a href="#穷举算法" class="headerlink" title="穷举算法"></a>穷举算法</h1><ul>
+<li><p>穷举算法的基本思想就是从所有可能的情况中搜索正确的答案，其执行步骤如下：</p>
+<ul>
+<li>对于一种可能的情况，计算其结果。</li>
+<li>判断结果是否满足要求，如果不满足则进行执行步骤一步来搜索下一个可能的情况；如果满足要求，则表示寻找到一个正确的答案。</li>
+</ul>
+<p>举例：</p>
+<p>鸡兔同笼问题，今有鸡兔同笼，上有三十头，下又九十足，问鸡兔几何？ Lesson_7</p>
+</li>
+</ul>
+<h1 id="递推算法"><a href="#递推算法" class="headerlink" title="递推算法"></a>递推算法</h1><ul>
+<li>递推算法是一种理性思维模式的代表，对于有规律的数据，根据已有的数据和关系，逐步推导而得到结果。递推算法的执行过程：<ul>
+<li>根据已知结果和关系，求解中间结果。</li>
+<li>判定是否达到要求，如果没有达到，则继续根据已知结果和关系求解中间结果。如果满足要求，则表示寻找到一个正确的答案。</li>
+</ul>
+</li>
+</ul>
+<p>举例：数学中的斐波那契数列便是一个使用递推算法的经典例子。其中记载了典型的兔子产仔问题，如果一对两个月大的兔子以后每一个月都可以生一对小兔子，而一对新生的兔子出生两个月后才可以生小兔子。也就是说 1 月份出生， 3 月份才可以产仔。假定一年内没有产生兔子死亡事件，那么 1 年后共有多少对兔子呢？</p>
+<p>分析：</p>
+<p>第一个月：1 对</p>
+<p>第二个月：1 对</p>
+<p>第三个月：2 对</p>
+<p>第四个月：3 对</p>
+<p>第五个月：5 对</p>
+<p>…</p>
+<p>第n个月：$F<em>n= F</em>{n-2} + F_{n-1}$  </p>
+<h1 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h1><p>递归算法就是在程序中不断反复调用自身来达到求解问题的方法。这里的重点是调用自身，这样要求待求解的问题能够分解为相同问题的一个子问题。这样通过多次递归调用，便可以完成求解。</p>
+<p>函数的递归调用分两种情况：直接递归和间接递归。</p>
+<ul>
+<li>直接递归，即在函数中调用函数本身。</li>
+<li>间接递归，即间接地调用一个函数，如 func_a 调用 func_b, func_b 又调用 func_a。</li>
+</ul>
+<p>递归的优点：程序代码简洁清晰，可读性好。有的算法用递归表示要比用循环表示简洁精炼，而且某些问题，特别是与人工智能有关的问题，更适用递归方法，如八皇后问题、汉若塔问题等。有的算法，用递归能实现，而用循环却不一定能实现。</p>
+<p>递归的缺点：大部分递归例程没有明显地减少代码规模和节省内存空间。递归形式比非递归形式运行速度要慢一些。这是因为附加的函数调用增加了时间开销，例如需要执行一系列的压栈等操作。但在许多情况下，速度的差别不太明显。如果递归层次太深，还可能导致堆栈溢出。</p>
+<p>举例：数学中的阶乘 n! = n <em> (n-1) </em> (n-2) …… <em> 2 </em> 1</p>
+<p>阶乘具有明显的递归性质，其符合的递归公式: n! = n <em> (n-1)!，因此可以采用递归思想来计算阶乘 $F_n = n </em> F_{n-1}$</p>
+<h1 id="分治算法"><a href="#分治算法" class="headerlink" title="分治算法"></a>分治算法</h1><p>分治算法的基本思想是将一个计算复杂的问题分为规模较小，计算简单的小问题求解，然后综合各个小问题，而得到最终问题的答案。分治算法的执行过程如下：</p>
+<ul>
+<li>对于一个规模为 N 的问题，若该问题可以容易地解决（比如说规模N较小），则直接解决，否则执行下面的步骤。</li>
+<li>将该分解为 M 个规模较小的子问题，这些子问题互相独立，并且与原问题形式相同。</li>
+<li>递归地解决这些子问题</li>
+<li><p>然后，将各个子问题的解合并得到原问题的解</p>
+<p>举例：一个袋子里有 30 个硬币，其中一枚是假币，并且假币和真币一模一样，肉眼难分辨，目前只知道假币比真币重量轻一点。请问如何区分出假币？</p>
+<p>采用递归分治思想来求解这个问题：</p>
+<ul>
+<li>首先为每个硬币编号，然后可以将所有的硬币等分两份，放在天平的两边。这样就将区分 30 个硬币的问题，变为区别两堆硬币的问题。</li>
+<li>将轻的一侧继续等分两份重复上述操作，直至最后两枚硬币。</li>
+</ul>
+</li>
+</ul>
+<h1 id="概率算法思想"><a href="#概率算法思想" class="headerlink" title="概率算法思想"></a>概率算法思想</h1><p>概率算法执行的基本过程如下：</p>
+<ol>
+<li>将问题转化为相应的几何图形 S, S 的面积是容易计算的，问题的结果往往对应几何图形中某一部分 S1 的面积。</li>
+<li>然后，向几何图形中随机撒点。</li>
+<li>统计几何图形 S 中和 S1 中的点数。根据 S 的面和 S1 面积的关系以及各图形中的点数来计算得到的结果。</li>
+<li>判断上述结果是否在需要的精度之内，如果未达到精度则进行步骤 2。如果达到了精度，则输出近似结果。</li>
+</ol>
+<p>概率算法大致分为如下4种形式：</p>
+<ul>
+<li>数值概率算法</li>
+<li>蒙特卡罗（Monte Carlo）算法</li>
+<li>拉斯维加斯（Las Vegas）算法 </li>
+<li>舍伍德（Sherwood）算法</li>
+</ul>
+<p>使用蒙特卡罗算法计算圆周率 π 。</p>
+<p>首先看一个半径为 1 的圆。首先，对于图中圆的面积有如下公式：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5433182-b72fe7ecc9b0c2f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="概率算法.png"></p>
+<p>$S_圆 = \pi \times r^2$  </p>
+<p>$S<em>阴影 = S</em>圆 / 4 = \frac{\pi * r^2}{4} = \frac{\pi}{4}$   </p>
+<p>$S_正方形 = r^2 = 1$</p>
+<p>$S<em>圆/S</em>正方形 = \frac{\pi}{4}$</p>
+<h1 id="冒泡排序法"><a href="#冒泡排序法" class="headerlink" title="冒泡排序法"></a>冒泡排序法</h1><p>冒泡排序算法通过多次比较和交换来实现排序，其排序流程如下：</p>
+<ol>
+<li>对数组中的各数据，依次比较相邻的两个元素大小。</li>
+<li>如果前面的数据大于后面的数据，就交换这两个数据。经过第一轮的多次比较排序后，便可把最小的数据排好。</li>
+<li>然后，再用同样的方法把剩下的数据逐个进行比较，最后便可按照从小到大的顺序排好数组各数据的顺序。</li>
+</ol>
+<p>初始数据：118 101 105 127 112</p>
+<p>一次排序：101 118 105 127 112</p>
+<p>二次排序：101 105 118 112 127</p>
+<p>三次排序：101 105 112 118 127</p>
+<p>四次排序：101 105 118 112 127</p>
+<p>冒泡的两种写法：</p>
+<p>假如有几个数字int score[] = {67, 69, 75, 88};  按照从大到小排序。</p>
+<p>有2种思路，第一种，score[j] 和 score[j+1] 比较 如果 前者比后者小，把前者和后者调换顺序，两两调换后一轮下来 最小的会被排到最后去。每一轮j都从0开始，当i轮排序，就有最后面的i个数字因为他是最小的，所以后面的每轮都不用理他了，也就是 score.length-1-i  往后的数不用管了，如上，第一轮有4个数字 i为0 ，那么score.length-1-i  为3，也就是下标是3以后的可以不用管，3往后没有数字，所以第一轮所有的数字都要参加比较，第二轮I=1  score.length-1-i  为2 也就是说 下标2后面的 下标为3的数字不用比了，因为两两比较厚，67会到 score[3],实现代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i =0;i &lt; score.length - 1;i++)  </span><br><span class="line">&#123;  </span><br><span class="line">  for(int j = 0;j &lt;  score.length - 1-i;j++)// j开始等于0，  </span><br><span class="line">  &#123;  </span><br><span class="line">    if(score[j] &lt; score[j+1])  </span><br><span class="line">    &#123;  </span><br><span class="line">      int temp = score[j];  </span><br><span class="line">      score[j] = score[j+1];  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二种思路，用88 和 75 比较，在和69 比较 在和 67 比较，发现88是最大的，吧他排到第一位，然后i=1,也就是第二轮，就不用看下标为0的88了因为他是老大，然后接着比较。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i =0;i &lt; score.length - 1;i++)  </span><br><span class="line">&#123;  </span><br><span class="line">  for(int j = (score.length - 2);j &gt;= 0;j--)  </span><br><span class="line">  &#123;  </span><br><span class="line">    if(score[j] &lt; score[j+1]) &#123;  </span><br><span class="line">      int temp = score[j];  </span><br><span class="line">      score[j] = score[j+1];  </span><br><span class="line">      score[j+1] = temp;  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 较上面的方法 这样程序执行的效率是否会高一些 毕竟少运行了一半的循环 已经排序的就不需要在走一遍了</span><br><span class="line">for (int i = 0; i &lt; arr.length; i++) </span><br><span class="line">&#123;</span><br><span class="line">  for (int j = arr.length - 1; j&gt;i ; j--) </span><br><span class="line">  &#123;</span><br><span class="line">    if (arr[j] &lt; arr[j - 1]) &#123;</span><br><span class="line">      temp = arr[j];</span><br><span class="line">      arr[j] = arr[j - 1];</span><br><span class="line">      arr[j - 1] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="选择排序法"><a href="#选择排序法" class="headerlink" title="选择排序法"></a>选择排序法</h1><p>选择排序算法通过选择和交换来实现排序，其排序流程如下：</p>
+<ol>
+<li>首先从原始数组中选择最小的 1 个数据，将其和位于第 1 个位置的数据交换。</li>
+<li>接着从剩下的 n-1 个数据中选择次小的 1 个元素，将其和第 2 个位置的数据交换。</li>
+<li>然后，这样不断重复，直到最后两个数据完成交换。最后，便完成了对原始数组的从小到大的排序。 </li>
+</ol>
+<p>初始数据：118 101 105 127 112</p>
+<p>一次排序：101 118 105 127 112</p>
+<p>二次排序：101 105 118 127 112</p>
+<p>三次排序：101 105 112 127 118</p>
+<p>四次排序：101 105 112 118 127</p>
+<h1 id="插入排序法"><a href="#插入排序法" class="headerlink" title="插入排序法"></a>插入排序法</h1><p>插入排序算法通过比较和插入来实现排序，其排序流程如下：</p>
+<ol>
+<li>首先对数组的前两个数据进行从小到大的排序。</li>
+<li>接着将第 3 个数据与排好序的两个数据比较，将第 3 个数据插入到合适的位置。</li>
+<li>然后，将第 4 个数据插入到已排好序的前 3 个数据中。</li>
+<li>不断重复上述过程，直到把最后一个数据插入合适的位置。最后，便完成了对原始数组的从小到大的排序。</li>
+</ol>
+<p>初始数据：118 101 105 127 112</p>
+<p>一次排序：101 118 105 127 112</p>
+<p>二次排序：101 105 118 127 112</p>
+<p>三次排序：101 105 118 127 112</p>
+<p>四次排序：101 105 112 118 127</p>
+<h1 id="Shell-排序法"><a href="#Shell-排序法" class="headerlink" title="Shell 排序法"></a>Shell 排序法</h1><p>shell 排序算法严格来说是基于插入排序的思想的，其又称为希尔排序或者缩小增量排序。shell 排序算法的排序流程如下：</p>
+<ol>
+<li>将有 n 个元素的数组分为 n/2 个数字序列，第 1 个数据和第 n/2+1 个数据为一对，……。</li>
+<li>一次循环使每一个序列对排好顺序。</li>
+<li>然后，再变为 n/4 个序列，再次排序。</li>
+<li>不断重复上述过程，随着序列减少最后变为一个，也就完成了整个排序。</li>
+</ol>
+<p>初始数据：127 118 105 101 112 100</p>
+<p>一次排序：101 112 100 127 118 105</p>
+<p>二次排序：100 101 105 112 118 127</p>
+<h1 id="快速排序法"><a href="#快速排序法" class="headerlink" title="快速排序法"></a>快速排序法</h1><p>快速排序算法流程如下：</p>
+<ol>
+<li>首先设定一个分界值，通过该分界值将数组分成左右两部分。</li>
+<li>将大于等于分界值的数据集中到数组右边，小于分界值的数据集中到数组的左边。此时，左边部分中各元素都小于等于分界值，而右边部分中各元素都大于等于分界值。</li>
+<li>然后，左边和右边的数据可以独立排序。对于左侧的数组数据，又可以取一个分界值，将该部分数据分成左右两部分，同样将左边放置较小值，右边放置较大值。右侧的数组数据也可以做类似处理。</li>
+<li>重复上述过程，可以看出，这是一个递归定义。通过递归将左侧部分排序好后，再递归排好右侧部分的顺序。当左、右两个部分各数据排序完成后，整个数组的排序也就完成了。</li>
+</ol>
+<h1 id="堆排序法"><a href="#堆排序法" class="headerlink" title="堆排序法"></a>堆排序法</h1><p>什么是堆结构</p>
+<ol>
+<li><p>堆排序的关键是首先构造堆结构。那么是堆结构呢？堆结构是一种树结构，准确地说是一个完全二叉树。在这个树中每个结点对应于原始数据的一个记录，并且每个结点应满足以下条件：</p>
+<ul>
+<li>如果按照从小到大的顺序排序，要求非叶结点的数据要大于或等于其左、右子结点的数据。</li>
+<li>如果按照从大到到小的顺序排序，要求非叶结点的数据要小于或等于其左、右子结点的数据。</li>
+</ul>
+</li>
+</ol>
+<p>堆排序过程</p>
+<ul>
+<li>一个完整的堆排序需要经过反复的两个步骤：构造堆结构和堆排序输出。</li>
+<li>构造堆结构就是把原始的无序数据按前面堆结构的定义进行调整。首先，需要将原始的无序数据放置到一个完全二叉树的各个结点中。</li>
+<li>然后，由完全二叉树的下层向上层逐层进行父子结点的数据进行比较，使父结点的数据大于子结点的数据。这里需要使用 “筛” 运算进行结点数据的调整，直到使所有结点最后满足堆结构的条件为止。筛运算主要针对非叶结点进行调整。</li>
+</ul>
+<p>对于一个非叶结点 $A_i$，这里假定 $A_i$ 的左子树和右子树均已进行筛运算，也就是说其左子树和右子树均已构成堆结构。下面对 $A_i$ 进行筛运算，操作步骤如下：</p>
+<ol>
+<li>比较 $A_i$ 的左子树和右子树的最大值，将最大值放在 $A_j$ 中。</li>
+<li>将 $A_i$ 的数据与 $A_j$ 的数据进行比较，如果 $A_i$ 大于等于 $A_j$，表示以 $A_i$ 为根的子树已构成堆结构。便可以终止筛运算。</li>
+<li>如果 $A_i$ 小于 $A_j$，则将 $A_i$ 与 $A_j$ 互换位置。</li>
+<li>经过第 3 步后，可能会破坏以 $A_i$ 为根的堆，因为此时 $A_i$ 的值为原来的 $A_j$。下面以 $A_j$ 为根重复前面的步骤，直到满足堆结构的定义，也就是父结点数据大于子结点。这样，以 $A_j$ 为根的子树就被调整为一个堆。</li>
+</ol>
+<p>假设有 8 个需要排序的数据序列 67、65、77、38、97、3、33、49</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5433182-dcd40852b07ca1dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="堆排序.png"></p>
+<h1 id="合并排序法"><a href="#合并排序法" class="headerlink" title="合并排序法"></a>合并排序法</h1><ul>
+<li>合并排序(Merge Sort) 就是将多个有序数据表合并成一个有序数据表。如果参与合并的只有两个有序表，那么称为二路合并。对于一个原始的待排序序列，往往可以通过分割的方法来归结为多路合并排序。</li>
+<li>一个待排序的原始数据序列进行合并排序的基本思路是：首先将含有 n 个结点的待排序数据序列看作有 n 个长度为 1 的有序字表组成，将他们依次两两合并，得到长度为2的若干有序字表；然后，再对这些个子表进行两两合并，得到长度为 4 的若干有序子表；……，重复上述过程，一直重复到最后的子表长度为 n，从而完成排序过程。</li>
+</ul>
+<h1 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h1><p>查找 (Search) 是指从一批记录中找出满足指定条件的某一记录的过程，查找又称为检索。查找算法广泛应用于各类应用程序中，因此，一个有效的查找算法往往可以大大提供程序的执行效率。</p>
+<p>关键字分为两类：</p>
+<ul>
+<li>主关键字（Primary Key）：如果关键字可以唯一标识数据结构中的一个记录，则称此关键字为主关键字；</li>
+<li>次关键字（Secondary Key）：如果关键字不能唯一区分各不同记录，则称此关键字为次关键字。</li>
+</ul>
+<p>顺序查找执行的操作是从数据序列中的第 1 个元素开始，从头到尾依次逐个查找，直到找到所要的数据或搜索完整个数据序列。顺序查找主要针对少量的、无规则的数据。</p>
+<p>对于包含 n 个数据的数据序列，使用顺序查找方法查找数据，最理想的情况是目标数据位于数组的第一个，这样比较 1 次就找到目标数据。而最差的情况是需比较完所有的 n 个数据才找到目标数据或者确认没有该数据。平均来说，比较次数为 n/2 次，效率是比较差。</p>
+<h1 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h1><p>折半查找（Binary Search）又称为二分查找，其要求数据序列呈线性结构，也就是经过排序的。对于没有经过排序的，可以通过上一章中的排序算法来进行预排序，然后执行折半查找操作。</p>
+<p>折半查找可以明显地提高查找的效率。</p>
+<p>算法的操作步骤如下：</p>
+<p>首先需要设三个变量low、mid、high分别保存数组元素的开始、中间和末尾的序号，接着进行以下判断：</p>
+<ol>
+<li>如果序号为 mid 的数组元素的值与 x 相等，表示查找到了数据，返回该序号 mid。</li>
+<li>否则如果 x&lt;a[mid], 表示要查找的数据 x 位于 low 与 mid-1 序号之间，就不需要再去查找 mid 与 high序号之间的元素了，因此，将 high 变量的值改为 mid-1，重新查找low 与 mid-1（即 high 变量的新值）之间的数据。</li>
+<li>如果 x&gt;a[mid], 表示要查找的数据位于 mid+1 与 high 序号之间，就不需要再去查找 low 与 mid 序号之间的元素了。因此，将 low 变量的值改为 mid-1，重新查找 mid+1（即 low 变量的新值）与 high 之间的数据。</li>
+<li>逐步循环，如果到low &gt; high 时还未找到目标数据 x，则表示数组中无此数据。</li>
+</ol>
+<h1 id="多项式计算"><a href="#多项式计算" class="headerlink" title="多项式计算"></a>多项式计算</h1><h2 id="普通多项式"><a href="#普通多项式" class="headerlink" title="普通多项式"></a>普通多项式</h2><p>对于一维多项式就是包含一个变量的多项式，一个普通的一维多项式示例如下：</p>
+<p>$P(x) = a<em>{n-1}X^{n-1}+a</em>{n-2}X^{n-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>一维多项式求值就是对于上述多项式，计算在指定的 X 处的函数值。例如：</p>
+<p>$P(x) = 3X^6+7X^5-3X^4+2X^3+7X^2-7X-15$</p>
+<p>一个通用的计算多项式的值的算法可以采用递推的方式。首先将上述多项式可以变形为如下的等价形式：</p>
+<p>$P(x) = (\cdots((a<em>{n-1}X+a</em>{n-2})+a_{n-3})X+\cdots+a_1)X+a_0$</p>
+<p>下面，我们按照这个算法来计算如下多项式在 x = -2.0、-0.5、1.0、2.0、3.7 和 4.0 处的值。</p>
+<p>$P(x) = 3X^6+7X^5-3X^4+2X^3+7X^2-7X-15$</p>
+<h2 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h2><p>多项式乘法就是将两个多项式进行相乘，最后得到一个新的多项式。例如，如下的两个多项式：</p>
+<p>$A(x) = a<em>{m-1}X^{m-1}+a</em>{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>$B(x) = b<em>{n-1}X^{n-1}+b</em>{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
+<p>这两个多项式相乘的结果如下：</p>
+<p>$R(x) = A(x)B(x) = r_{n+m-2}X^{n+m-2}+\cdots\cdots+r_1X+r_0$</p>
+<p>例如，我们要计算如下两个多项式的乘机多项式：</p>
+<p>$A(x)=2x^5+3x^4-x^3+2x^2+5x-4$</p>
+<p>$B(x)=3x^3+x^2-2x-3$</p>
+<h1 id="多项式除法"><a href="#多项式除法" class="headerlink" title="多项式除法"></a>多项式除法</h1><p>多项式除法就是将两个多项式进行相除，最后得到一个商多项式和余多项式。例如，如下的两个多项式：</p>
+<p>$A(x) = a<em>{m-1}X^{m-1}+a</em>{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>$B(x) = b<em>{n-1}X^{n-1}+b</em>{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
+<p>通过推算，我们可以知道商多项式为 R(x) 的最高次数为 k = m-n，余多项式的最高次数为 n-2。在数学上可以通过综合除法来计算商多项式 R(x) 和余多项式为 L(x) 中的各个系数。商多项式 R(x) 的各个系数由下列递推算法来计算得到</p>
+<p>$r<em>{k-i} = a</em>{m-1-i}/b_{n-1}$</p>
+<p>$b<em>j = b</em>{j-S<em>{k-i}}b</em>{j+i-k}$</p>
+<p>例如，我们计算 A(x)/B(x) 的商多项式和余多项式，A(x) 和 B(x)分别如下：</p>
+<p>$A(x) = 2x^4+4x^3-3x^2+6x-3$</p>
+<p>$B(x) = x^2+x-1$</p>
+<h1 id="随机数生成算法"><a href="#随机数生成算法" class="headerlink" title="随机数生成算法"></a>随机数生成算法</h1><h2 id="C语言中的随机函数"><a href="#C语言中的随机函数" class="headerlink" title="C语言中的随机函数"></a>C语言中的随机函数</h2><p>c 语言中提供了如下两个随机数生成函数：</p>
+<ul>
+<li>伪随机函数—rand：用于返回一个 0 到 32767 之间的伪随机数。</li>
+<li>随机种子函数—srand：用来初始化随机数发生器的随机种子。</li>
+</ul>
+<h2 id="0-1-之间均匀分布的随机数算法"><a href="#0-1-之间均匀分布的随机数算法" class="headerlink" title="[0, 1]之间均匀分布的随机数算法"></a>[0, 1]之间均匀分布的随机数算法</h2><p>[0, 1]之间均匀分布的随机的算法，如下一个比较简单的算法：</p>
+<p>首先，设定一个基数 base = 256.0，以及两个常熟 a=17.0 和 b=139.0。这里，基数 base 一般取 2 的整数倍，常数 a 和 b 可以根据经验来随意取。然后，可以按照如下的递推算法来逐个得到[0, 1]之间的随机数。</p>
+<p>r<em>i = mod(a*r</em>{i-1}+b, base)</p>
+<p>p_i = r_i/base</p>
+<h1 id="计算-pi-的近似值"><a href="#计算-pi-的近似值" class="headerlink" title="计算 $\pi$ 的近似值"></a>计算 $\pi$ 的近似值</h1><p>圆周率 $\pi$ 一般定义为圆周长与圆直径之比。在数学分析学中，圆周率 $\pi$ 被严格定义为满足如下等式的最小正实数：</p>
+<p>$\sin(x) = 0$ </p>
+<p>圆周率 $\pi$ = 3.141592653589793……，其是一个无限不循环实数，也就是所谓的无理数。 </p>
+<h2 id="割圆术"><a href="#割圆术" class="headerlink" title="割圆术"></a>割圆术</h2><p>假设一个圆如图所示，其半径为1，在其内部内接一个正六边行边长为 $y_1$。圆周率 $\pi$ 为圆周长与圆直径之比，也就是 $L_1/(2*1)=6/2=3$，这就是按照内接正六变形得到的圆周率 $\pi$ 近似值。</p>
+<h1 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h1><h2 id="矩阵加法"><a href="#矩阵加法" class="headerlink" title="矩阵加法"></a>矩阵加法</h2><p>矩阵加法比较简单，只需对应相加即可。矩阵加法的前提条件是两个参与运算矩阵的行数和列数必须对应相等。</p>
+<script type="math/tex; mode=display">
+ \left[
+ \begin{matrix}
+   2 & 8 & 3 \\
+   11 & -1 & 5 \\
+   13 & 2 & 7
+  \end{matrix}
+  \right] 
+  +
+  \left[
+ \begin{matrix}
+   1 & 18 & 7 \\
+   2 & 11 & 15 \\
+   10 & 3 & 4
+  \end{matrix}
+  \right]
+  =
+  \left[
+ \begin{matrix}
+   3 & 26 & 10 \\
+   13 & 10 & 20 \\
+   23 & 5 & 11
+  \end{matrix}
+  \right]</script><h2 id="矩阵减法"><a href="#矩阵减法" class="headerlink" title="矩阵减法"></a>矩阵减法</h2><p>矩阵减法也是比较简单，只需对应项相减即可。矩阵减法的前提条件是两个参与运算矩阵的行数和列数必须对应相等。</p>
+<script type="math/tex; mode=display">
+ \left[
+ \begin{matrix}
+   2 & 8 & 3 \\
+   11 & -1 & 5 \\
+   13 & 2 & 7
+  \end{matrix}
+  \right] 
+  +
+  \left[
+ \begin{matrix}
+   1 & 18 & 7 \\
+   2 & 11 & 15 \\
+   10 & 3 & 4
+  \end{matrix}
+  \right]
+  =
+  \left[
+ \begin{matrix}
+   1 & -10 & -4 \\
+   9 & -12 & -10 \\
+   3 & -1 & 3
+  \end{matrix}
+  \right]</script><h1 id="数值积分"><a href="#数值积分" class="headerlink" title="数值积分"></a>数值积分</h1><p>数值积分有很多种算法，最常用的便是变步长梯形算法。变步长梯形算法求解定积分的步骤如下：</p>
+<ol>
+<li>首先定义一个精度 eps，将积分区别一等分，按照梯形规则结算结果。</li>
+<li>将每个求积分区间在进行二等分，再次按照梯形规则计算结果。</li>
+<li>比较二等分前后，再次积分结果的差。如果差值小于精度 eps，则输出最后结果，否则继续等分求积区间。</li>
+</ol>
+<p>求解如下的两个定积分的数值计算结果</p>
+<p>$\int ^1_0 x e^{-x^2} = ?$</p>
+<p>$\int ^3_1 x e^{-x^2} = ?$</p>
+<h1 id="城市之间的最短总距离"><a href="#城市之间的最短总距离" class="headerlink" title="城市之间的最短总距离"></a>城市之间的最短总距离</h1><h1 id="最短总距离算法"><a href="#最短总距离算法" class="headerlink" title="最短总距离算法"></a>最短总距离算法</h1><p>某个地区的 n 个城市构成一个交通图，我们可以使用图结构来描述这个问题，其对应关系如下：</p>
+<ul>
+<li>每个城市代表一个图中的一个顶点。</li>
+<li><p>两个顶点之间的边就是两个城市之间的路径，边的权值代表了城市间的距离。</p>
+<p>这样，求解各个城市之间的最短总距离问题就归结为该图的最小生成树问题。</p>
+</li>
+</ul>
+<p> 什么是生成树和最小生成树。对于一个连通图的一个子图，如果其满足如下条件则称之为原图的一个生成树；</p>
+<ul>
+<li>子图的顶点和原图完全相同。</li>
+<li>子图的分是原图的子集，这一部分边刚好将图中所有顶连通。</li>
+<li>子图中的边不构成回路。</li>
+</ul>
+<script type="math/tex; mode=display">
+\   
+\left[\begin{array}{llll}   
+    1 &    6    & 9 \\   
+    7 &    90   & f(x)\\   
+    9 & \psi(x) & g(x)   
+\end{array}\right]
+\ + \   
+\left[\begin{array}{cccc}   
+    1 &    6    & 9 \\   
+    7 &    90   & f(x)\\   
+    9 & \psi(x) & g(x)   
+\end{array}\right]
+\</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构算法/" rel="tag"># 数据结构算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/03/iOS/iOS-开发之多线程开篇/" rel="prev" title="iOS 开发之多线程开篇">
+                iOS 开发之多线程开篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTcyMy84Mjg3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zerocc</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顺序表结构"><span class="nav-number">2.</span> <span class="nav-text">顺序表结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链表结构-链式结构"><span class="nav-number">3.</span> <span class="nav-text">链表结构(链式结构)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是链表结构"><span class="nav-number">3.0.1.</span> <span class="nav-text">什么是链表结构</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#栈结构"><span class="nav-number">4.</span> <span class="nav-text">栈结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#队列结构"><span class="nav-number">5.</span> <span class="nav-text">队列结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树结构"><span class="nav-number">6.</span> <span class="nav-text">树结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图结构"><span class="nav-number">7.</span> <span class="nav-text">图结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图的数据处理"><span class="nav-number">7.0.1.</span> <span class="nav-text">图的数据处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#穷举算法"><span class="nav-number">8.</span> <span class="nav-text">穷举算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递推算法"><span class="nav-number">9.</span> <span class="nav-text">递推算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归算法"><span class="nav-number">10.</span> <span class="nav-text">递归算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分治算法"><span class="nav-number">11.</span> <span class="nav-text">分治算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率算法思想"><span class="nav-number">12.</span> <span class="nav-text">概率算法思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冒泡排序法"><span class="nav-number">13.</span> <span class="nav-text">冒泡排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序法"><span class="nav-number">14.</span> <span class="nav-text">选择排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入排序法"><span class="nav-number">15.</span> <span class="nav-text">插入排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-排序法"><span class="nav-number">16.</span> <span class="nav-text">Shell 排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序法"><span class="nav-number">17.</span> <span class="nav-text">快速排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆排序法"><span class="nav-number">18.</span> <span class="nav-text">堆排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并排序法"><span class="nav-number">19.</span> <span class="nav-text">合并排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顺序查找"><span class="nav-number">20.</span> <span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#折半查找"><span class="nav-number">21.</span> <span class="nav-text">折半查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多项式计算"><span class="nav-number">22.</span> <span class="nav-text">多项式计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通多项式"><span class="nav-number">22.1.</span> <span class="nav-text">普通多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式乘法"><span class="nav-number">22.2.</span> <span class="nav-text">多项式乘法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多项式除法"><span class="nav-number">23.</span> <span class="nav-text">多项式除法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机数生成算法"><span class="nav-number">24.</span> <span class="nav-text">随机数生成算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言中的随机函数"><span class="nav-number">24.1.</span> <span class="nav-text">C语言中的随机函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-之间均匀分布的随机数算法"><span class="nav-number">24.2.</span> <span class="nav-text">[0, 1]之间均匀分布的随机数算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算-pi-的近似值"><span class="nav-number">25.</span> <span class="nav-text">计算 $\pi$ 的近似值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#割圆术"><span class="nav-number">25.1.</span> <span class="nav-text">割圆术</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#矩阵运算"><span class="nav-number">26.</span> <span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵加法"><span class="nav-number">26.1.</span> <span class="nav-text">矩阵加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵减法"><span class="nav-number">26.2.</span> <span class="nav-text">矩阵减法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数值积分"><span class="nav-number">27.</span> <span class="nav-text">数值积分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#城市之间的最短总距离"><span class="nav-number">28.</span> <span class="nav-text">城市之间的最短总距离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最短总距离算法"><span class="nav-number">29.</span> <span class="nav-text">最短总距离算法</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zerocc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
