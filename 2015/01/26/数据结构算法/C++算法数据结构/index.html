@@ -594,7 +594,7 @@
 <p>第四个月：3 对</p>
 <p>第五个月：5 对</p>
 <p>…</p>
-<p>第n个月：$F<em>n= F</em>{n-2} + F_{n-1}$  </p>
+<p>第n个月：$F_n= F_{n-2} + F_{n-1}$  </p>
 <h1 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h1><p>递归算法就是在程序中不断反复调用自身来达到求解问题的方法。这里的重点是调用自身，这样要求待求解的问题能够分解为相同问题的一个子问题。这样通过多次递归调用，便可以完成求解。</p>
 <p>函数的递归调用分两种情况：直接递归和间接递归。</p>
 <ul>
@@ -637,9 +637,9 @@
 <p>首先看一个半径为 1 的圆。首先，对于图中圆的面积有如下公式：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5433182-b72fe7ecc9b0c2f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="概率算法.png"></p>
 <p>$S_圆 = \pi \times r^2$  </p>
-<p>$S<em>阴影 = S</em>圆 / 4 = \frac{\pi * r^2}{4} = \frac{\pi}{4}$   </p>
+<p>$S_阴影 = S_圆 / 4 = \frac{\pi * r^2}{4} = \frac{\pi}{4}$   </p>
 <p>$S_正方形 = r^2 = 1$</p>
-<p>$S<em>圆/S</em>正方形 = \frac{\pi}{4}$</p>
+<p>$S_圆/S_正方形 = \frac{\pi}{4}$</p>
 <h1 id="冒泡排序法"><a href="#冒泡排序法" class="headerlink" title="冒泡排序法"></a>冒泡排序法</h1><p>冒泡排序算法通过多次比较和交换来实现排序，其排序流程如下：</p>
 <ol>
 <li>对数组中的各数据，依次比较相邻的两个元素大小。</li>
@@ -745,27 +745,27 @@
 <li>逐步循环，如果到low &gt; high 时还未找到目标数据 x，则表示数组中无此数据。</li>
 </ol>
 <h1 id="多项式计算"><a href="#多项式计算" class="headerlink" title="多项式计算"></a>多项式计算</h1><h2 id="普通多项式"><a href="#普通多项式" class="headerlink" title="普通多项式"></a>普通多项式</h2><p>对于一维多项式就是包含一个变量的多项式，一个普通的一维多项式示例如下：</p>
-<p>$P(x) = a<em>{n-1}X^{n-1}+a</em>{n-2}X^{n-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>$P(x) = a_{n-1}X^{n-1}+a_{n-2}X^{n-2}+\cdots\cdots+a_1X+a_0$</p>
 <p>一维多项式求值就是对于上述多项式，计算在指定的 X 处的函数值。例如：</p>
 <p>$P(x) = 3X^6+7X^5-3X^4+2X^3+7X^2-7X-15$</p>
 <p>一个通用的计算多项式的值的算法可以采用递推的方式。首先将上述多项式可以变形为如下的等价形式：</p>
-<p>$P(x) = (\cdots((a<em>{n-1}X+a</em>{n-2})+a_{n-3})X+\cdots+a_1)X+a_0$</p>
+<p>$P(x) = (\cdots((a_{n-1}X+a_{n-2})+a_{n-3})X+\cdots+a_1)X+a_0$</p>
 <p>下面，我们按照这个算法来计算如下多项式在 x = -2.0、-0.5、1.0、2.0、3.7 和 4.0 处的值。</p>
 <p>$P(x) = 3X^6+7X^5-3X^4+2X^3+7X^2-7X-15$</p>
 <h2 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h2><p>多项式乘法就是将两个多项式进行相乘，最后得到一个新的多项式。例如，如下的两个多项式：</p>
-<p>$A(x) = a<em>{m-1}X^{m-1}+a</em>{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
-<p>$B(x) = b<em>{n-1}X^{n-1}+b</em>{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
+<p>$A(x) = a_{m-1}X^{m-1}+a_{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>$B(x) = b_{n-1}X^{n-1}+b_{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
 <p>这两个多项式相乘的结果如下：</p>
 <p>$R(x) = A(x)B(x) = r_{n+m-2}X^{n+m-2}+\cdots\cdots+r_1X+r_0$</p>
 <p>例如，我们要计算如下两个多项式的乘机多项式：</p>
 <p>$A(x)=2x^5+3x^4-x^3+2x^2+5x-4$</p>
 <p>$B(x)=3x^3+x^2-2x-3$</p>
 <h1 id="多项式除法"><a href="#多项式除法" class="headerlink" title="多项式除法"></a>多项式除法</h1><p>多项式除法就是将两个多项式进行相除，最后得到一个商多项式和余多项式。例如，如下的两个多项式：</p>
-<p>$A(x) = a<em>{m-1}X^{m-1}+a</em>{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
-<p>$B(x) = b<em>{n-1}X^{n-1}+b</em>{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
+<p>$A(x) = a_{m-1}X^{m-1}+a_{m-2}X^{m-2}+\cdots\cdots+a_1X+a_0$</p>
+<p>$B(x) = b_{n-1}X^{n-1}+b_{n-2}X^{n-2}+\cdots\cdots+b_1X+b_0$</p>
 <p>通过推算，我们可以知道商多项式为 R(x) 的最高次数为 k = m-n，余多项式的最高次数为 n-2。在数学上可以通过综合除法来计算商多项式 R(x) 和余多项式为 L(x) 中的各个系数。商多项式 R(x) 的各个系数由下列递推算法来计算得到</p>
-<p>$r<em>{k-i} = a</em>{m-1-i}/b_{n-1}$</p>
-<p>$b<em>j = b</em>{j-S<em>{k-i}}b</em>{j+i-k}$</p>
+<p>$r_{k-i} = a_{m-1-i}/b_{n-1}$</p>
+<p>$b_j = b_{j-S_{k-i}}b_{j+i-k}$</p>
 <p>例如，我们计算 A(x)/B(x) 的商多项式和余多项式，A(x) 和 B(x)分别如下：</p>
 <p>$A(x) = 2x^4+4x^3-3x^2+6x-3$</p>
 <p>$B(x) = x^2+x-1$</p>
@@ -776,7 +776,7 @@
 </ul>
 <h2 id="0-1-之间均匀分布的随机数算法"><a href="#0-1-之间均匀分布的随机数算法" class="headerlink" title="[0, 1]之间均匀分布的随机数算法"></a>[0, 1]之间均匀分布的随机数算法</h2><p>[0, 1]之间均匀分布的随机的算法，如下一个比较简单的算法：</p>
 <p>首先，设定一个基数 base = 256.0，以及两个常熟 a=17.0 和 b=139.0。这里，基数 base 一般取 2 的整数倍，常数 a 和 b 可以根据经验来随意取。然后，可以按照如下的递推算法来逐个得到[0, 1]之间的随机数。</p>
-<p>r<em>i = mod(a*r</em>{i-1}+b, base)</p>
+<p>r_i = mod(a*r_{i-1}+b, base)</p>
 <p>p_i = r_i/base</p>
 <h1 id="计算-pi-的近似值"><a href="#计算-pi-的近似值" class="headerlink" title="计算 $\pi$ 的近似值"></a>计算 $\pi$ 的近似值</h1><p>圆周率 $\pi$ 一般定义为圆周长与圆直径之比。在数学分析学中，圆周率 $\pi$ 被严格定义为满足如下等式的最小正实数：</p>
 <p>$\sin(x) = 0$ </p>
@@ -1274,11 +1274,33 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 
