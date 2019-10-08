@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子">
+<meta name="description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子就">
 <meta name="keywords" content="基础知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP Session、Cookie机制详解">
 <meta property="og:url" content="https://www.zerocc.com.cn/2016/12/17/基础知识/HTTP Session、Cookie机制详解/index.html">
 <meta property="og:site_name" content="zerocc博客">
-<meta property="og:description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子">
+<meta property="og:description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子就">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-18T03:57:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Session、Cookie机制详解">
-<meta name="twitter:description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子">
+<meta name="twitter:description" content="什么是http session,有什么用HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。  这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子就">
 
 
 
@@ -340,7 +340,6 @@
 
       
         <a id="more"></a>
-
 <h1 id="什么是http-session-有什么用"><a href="#什么是http-session-有什么用" class="headerlink" title="什么是http session,有什么用"></a>什么是http session,有什么用</h1><p>HTTP协议本身是无状态的,本身并不能支持服务端保存客户端的状态信息，于是，Web Server中引入了session的概念，用来保存客户端的状态信息。 </p>
 <p>这 里用一个形象的比喻来解释session的工作方式。假设Web Server是一个商场的存包处，HTTP Request是一个顾客，第一次来到存包处，管理员把顾客的物品存放在某一个柜子里面（这个柜子就相当于Session），然后把一个号码牌交给这个顾 客，作为取包凭证（这个号码牌就是Session ID）。顾客（HTTP Request）下一次来的时候，就要把号码牌（Session ID）交给存包处（Web Server）的管理员。管理员根据号码牌（Session ID）找到相应的柜子（Session），根据顾客（HTTP Request）的请求，Web Server可以取出、更换、添加柜子（Session）中的物品，Web Server也可以让顾客（HTTP Request）的号码牌和号码牌对应的柜子（Session）失效。顾客（HTTP Request）的忘性很大，管理员在顾客回去的时候（HTTP Response）都要重新提醒顾客记住自己的号码牌（Session ID）。这样，顾客（HTTP Request）下次来的时候，就又带着号码牌回来了。<br>我们可以看到，Session ID实际上是在客户端和服务端之间通过HTTP Request和HTTP Response传来传去的。</p>
 <h1 id="一般用来实现Session的方法有两种·"><a href="#一般用来实现Session的方法有两种·" class="headerlink" title="一般用来实现Session的方法有两种·"></a>一般用来实现Session的方法有两种·</h1><p><strong>1. URL重写</strong> </p>
@@ -392,7 +391,7 @@
 <li>而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于 等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。意思是麦当劳的会员卡只能在麦当劳的店里出示，如果某家 分店还发行了自己的会员卡，那么进这家店的时候除了要出示麦当劳的会员卡，还要出示这家店的会员卡。</li>
 </ol>
 <h1 id="cookie的内容"><a href="#cookie的内容" class="headerlink" title="cookie的内容"></a>cookie的内容</h1><p>主要包括：名字，值，过期时间，路径和域。</p>
-<p>路径、域和作用范围：其中域可以指定某一个域比如.google.com，相当于总店招牌，比如宝洁公司，也可以指定一个域下的具体某台机器比如<a href="http://www.google.com或者froogle.google.com，可以用飘柔来做比。" target="_blank" rel="noopener">www.google.com或者froogle.google.com，可以用飘柔来做比。</a></p>
+<p>路径、域和作用范围：其中域可以指定某一个域比如.google.com，相当于总店招牌，比如宝洁公司，也可以指定一个域下的具体某台机器比如www.google.com或者froogle.google.com，可以用飘柔来做比。</p>
 <p>路径就是跟在域名后面的URL路径，比如/或者/foo等等，可以用某飘柔专柜做比。</p>
 <p>路径与域合在一起就构成了cookie的作用范围。</p>
 <p>过期时间：如 果不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。这种生命期为浏览器会话期的 cookie被称为会话cookie。会话cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。如果设置了过期时间，浏览器 就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。<br>浏览器差异：存 储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。对于 IE，在一个打开的窗口上按Ctrl-N（或者从文件菜单）打开的窗口可以与原窗口共享，而使用其他方式新开的IE进程则不能共享已经打开的窗口的内存 cookie；对于Mozilla Firefox0.8，所有的进程和标签页都可以共享同样的cookie。一般来说是用javascript的window.open打开的窗口会与原窗 口共享内存cookie。浏览器对于会话cookie的这种只认cookie不认人的处理方式经常给采用session机制的web应用程序开发者造成很大的困扰。</p>
@@ -520,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
